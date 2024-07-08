@@ -13,37 +13,55 @@ class Onboarding extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(Assets.images.splashScreen.path),
-            fit: BoxFit.cover
-            )
-        ),
+            image: DecorationImage(
+                image: AssetImage(Assets.images.splashScreen.path),
+                fit: BoxFit.cover)),
         child: Center(
           child: Padding(
-            padding:  EdgeInsets.symmetric( horizontal: UIHelper.kDefaulutPadding()
-            ),
+            padding:
+                EdgeInsets.all( UIHelper.kDefaulutPadding()),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               Image.asset(Assets.images.splashVector.path, height: 286.h, width: 318.w,),
-            
-               Text("Business Ideas Generator",
-               textAlign: TextAlign.center,
-               style: TextFontStyle.headline32FFFFFFRoboto,
-               ),
-
-               Text("Discover innovative concepts, explore new industries, and embark on your journey to success.",
-               textAlign: TextAlign.center,
-               style: TextFontStyle.headline16cDFE1E6Poppins,
-               ),
-
-               AuthCustomeButton(name: "GET STARTED", onCallBack: (){}, height: 20.h, minWidth: 100.w, borderRadius: 10, color: Colors.blue, textStyle: TextFontStyle.headline32FFFFFFRoboto, context: context)
-
-
-
-
-            
-            
+                const Spacer(),
+                Image.asset(
+                  Assets.images.splashVector.path,
+                  height: 286.h,
+                  width: 318.w,
+                ),
+                UIHelper.verticalSpaceLarge,
+                Text(
+                  "Business Ideas Generator",
+                  textAlign: TextAlign.center,
+                  style: TextFontStyle.headline32FFFFFFRoboto,
+                ),
+                UIHelper.verticalSpaceMedium,
+                Text(
+                  "Discover innovative concepts, explore new industries, and embark on your journey to success.",
+                  textAlign: TextAlign.center,
+                  style: TextFontStyle.headline16cDFE1E6Poppins,
+                ),
+                UIHelper.verticalSpaceLarge,
+                AuthCustomeButton(
+                  name: "GET STARTED",
+                  onCallBack: () {},
+                  height: 56.h,
+                  minWidth: 343.w,
+                  borderRadius: 50.r,
+                  color: Colors.blue,
+                  textStyle: TextFontStyle.button16primaryPoppins,
+                  context: context,
+                  gradient: const LinearGradient(
+                    colors: [
+                     Color(0xFFB7CEEE),
+                     Color(0xFF4C6794),
+                     
+                    ],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                ),
+                UIHelper.verticalSpaceMedium
               ],
             ),
           ),
