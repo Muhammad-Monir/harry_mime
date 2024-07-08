@@ -29,7 +29,8 @@ class _PopupWidgetState extends State<PopupWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(language(appData.read(kKeyLanguage)),
-                style: TextFontStyle.headline16StyleMontserrat.copyWith(color: AppColors.c000000)),
+                style: TextFontStyle.headline16cDFE1E6Poppins
+                    .copyWith(color: AppColors.c000000)),
             const Spacer(),
             PopupMenuButton<String>(
               key: popUpGlobalkey,

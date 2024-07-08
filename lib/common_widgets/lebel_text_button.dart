@@ -14,7 +14,7 @@ final class LabelTextButton extends StatelessWidget {
     required this.icon,
     this.width = 130,
     this.height = 30,
-    this.color = AppColors.cEDBB43,
+    this.color = AppColors.c47B54C,
     this.borderSide,
     this.textFontStyle,
   });
@@ -39,7 +39,9 @@ final class LabelTextButton extends StatelessWidget {
         onPressed: onCallBack,
         icon: icon,
         text: text,
-        textStyle: textFontStyle ?? TextFontStyle.headline14StyleMontserrat.copyWith(overflow: TextOverflow.ellipsis),
+        textStyle: textFontStyle ??
+            TextFontStyle.headline16cDFE1E6Poppins
+                .copyWith(overflow: TextOverflow.ellipsis),
       ),
     );
   }

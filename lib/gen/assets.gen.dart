@@ -12,151 +12,75 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Group.svg
+  String get group => 'assets/icons/Group.svg';
+
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
 
-  /// File path: assets/icons/bag.svg
-  String get bag => 'assets/icons/bag.svg';
+  /// File path: assets/icons/arrrow_right.svg
+  String get arrrowRight => 'assets/icons/arrrow_right.svg';
 
-  /// File path: assets/icons/bottom_line.svg
-  String get bottomLine => 'assets/icons/bottom_line.svg';
+  /// File path: assets/icons/capital.svg
+  String get capital => 'assets/icons/capital.svg';
 
-  /// File path: assets/icons/cart.svg
-  String get cart => 'assets/icons/cart.svg';
+  /// File path: assets/icons/health.svg
+  String get health => 'assets/icons/health.svg';
 
-  /// File path: assets/icons/delete.svg
-  String get delete => 'assets/icons/delete.svg';
+  /// File path: assets/icons/logo.svg
+  String get logo => 'assets/icons/logo.svg';
 
-  /// File path: assets/icons/delete_icon.svg
-  String get deleteIcon => 'assets/icons/delete_icon.svg';
+  /// File path: assets/icons/random.svg
+  String get random => 'assets/icons/random.svg';
 
-  /// File path: assets/icons/destination.png
-  AssetGenImage get destinationPng =>
-      const AssetGenImage('assets/icons/destination.png');
+  /// File path: assets/icons/save_fill.svg
+  String get saveFill => 'assets/icons/save_fill.svg';
 
-  /// File path: assets/icons/destination.svg
-  String get destinationSvg => 'assets/icons/destination.svg';
+  /// File path: assets/icons/services.svg
+  String get services => 'assets/icons/services.svg';
 
-  /// File path: assets/icons/discount_ticket.svg
-  String get discountTicket => 'assets/icons/discount_ticket.svg';
+  /// File path: assets/icons/splash_vector.svg
+  String get splashVector => 'assets/icons/splash_vector.svg';
 
-  /// File path: assets/icons/facebook.svg
-  String get facebook => 'assets/icons/facebook.svg';
-
-  /// File path: assets/icons/google.svg
-  String get google => 'assets/icons/google.svg';
-
-  /// File path: assets/icons/home.svg
-  String get home => 'assets/icons/home.svg';
-
-  /// File path: assets/icons/line.svg
-  String get line => 'assets/icons/line.svg';
-
-  /// File path: assets/icons/main_logo.svg
-  String get mainLogo => 'assets/icons/main_logo.svg';
-
-  /// File path: assets/icons/map.svg
-  String get map => 'assets/icons/map.svg';
-
-  /// File path: assets/icons/mapmarker.png
-  AssetGenImage get mapmarker =>
-      const AssetGenImage('assets/icons/mapmarker.png');
-
-  /// File path: assets/icons/movinglocation.png
-  AssetGenImage get movinglocationPng =>
-      const AssetGenImage('assets/icons/movinglocation.png');
-
-  /// File path: assets/icons/movinglocation.svg
-  String get movinglocationSvg => 'assets/icons/movinglocation.svg';
-
-  /// File path: assets/icons/new_line.svg
-  String get newLine => 'assets/icons/new_line.svg';
-
-  /// File path: assets/icons/payment.svg
-  String get payment => 'assets/icons/payment.svg';
-
-  /// File path: assets/icons/pen.svg
-  String get pen => 'assets/icons/pen.svg';
-
-  /// File path: assets/icons/ride.svg
-  String get ride => 'assets/icons/ride.svg';
-
-  /// File path: assets/icons/search.svg
-  String get search => 'assets/icons/search.svg';
-
-  /// File path: assets/icons/short_line.svg
-  String get shortLine => 'assets/icons/short_line.svg';
-
-  /// File path: assets/icons/splash.png
-  AssetGenImage get splash => const AssetGenImage('assets/icons/splash.png');
-
-  /// File path: assets/icons/splash2.png
-  AssetGenImage get splash2 => const AssetGenImage('assets/icons/splash2.png');
-
-  /// File path: assets/icons/star.svg
-  String get star => 'assets/icons/star.svg';
-
-  /// File path: assets/icons/time.svg
-  String get time => 'assets/icons/time.svg';
-
-  /// File path: assets/icons/user.svg
-  String get user => 'assets/icons/user.svg';
-
-  /// File path: assets/icons/xsplash.png
-  AssetGenImage get xsplash => const AssetGenImage('assets/icons/xsplash.png');
+  /// File path: assets/icons/technology.svg
+  String get technology => 'assets/icons/technology.svg';
 
   /// List of all assets
-  List<dynamic> get values => [
+  List<String> get values => [
+        group,
         apple,
-        bag,
-        bottomLine,
-        cart,
-        delete,
-        deleteIcon,
-        destinationPng,
-        destinationSvg,
-        discountTicket,
-        facebook,
-        google,
-        home,
-        line,
-        mainLogo,
-        map,
-        mapmarker,
-        movinglocationPng,
-        movinglocationSvg,
-        newLine,
-        payment,
-        pen,
-        ride,
-        search,
-        shortLine,
-        splash,
-        splash2,
-        star,
-        time,
-        user,
-        xsplash
+        arrrowRight,
+        capital,
+        health,
+        logo,
+        random,
+        saveFill,
+        services,
+        splashVector,
+        technology
       ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Splash Screen.png
+  AssetGenImage get splashScreen =>
+      const AssetGenImage('assets/images/Splash Screen.png');
+
   /// File path: assets/images/error_product.png
   AssetGenImage get errorProduct =>
       const AssetGenImage('assets/images/error_product.png');
 
-  /// File path: assets/images/placeholder_image.jpeg
-  AssetGenImage get placeholderImage =>
-      const AssetGenImage('assets/images/placeholder_image.jpeg');
-
   /// List of all assets
-  List<AssetGenImage> get values => [errorProduct, placeholderImage];
+  List<AssetGenImage> get values => [splashScreen, errorProduct];
 }
 
 class $AssetsLottieGen {
   const $AssetsLottieGen();
+
+  /// File path: assets/lottie/Wede_Animation.json
+  String get wedeAnimation => 'assets/lottie/Wede_Animation.json';
 
   /// File path: assets/lottie/add_to_cart.json
   String get addToCart => 'assets/lottie/add_to_cart.json';
@@ -213,11 +137,9 @@ class $AssetsLottieGen {
   /// File path: assets/lottie/success.json
   String get success => 'assets/lottie/success.json';
 
-  /// File path: assets/lottie/wede_animation.json
-  String get wedeAnimation => 'assets/lottie/wede_animation.json';
-
   /// List of all assets
   List<String> get values => [
+        wedeAnimation,
         addToCart,
         birdRing,
         cartIsEmpty,
@@ -235,8 +157,7 @@ class $AssetsLottieGen {
         rating,
         removeFromCart,
         restaurantLoading,
-        success,
-        wedeAnimation
+        success
       ];
 }
 
@@ -249,9 +170,16 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import '../gen/colors.gen.dart';
 
+import '../gen/colors.gen.dart';
 
 final class CustomTheme {
   CustomTheme._();
   static const MaterialColor kToDark = MaterialColor(
-    0xFFF9500A, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
+    0xFF0D1424, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
     <int, Color>{
-      50: Color(0xFFF9500A), //10%
-      100: Color(0xFFF9500A), //20%
-      200: Color(0xFFF9500A), //30%
-      300: Color(0xFFF9500A), //40%
-      400: Color(0xFFF9500A), //50%
-      500: Color(0xFFF9500A), //60%
-      600: Color(0xFFF9500A), //70%
-      700: Color(0xFFF9500A), //80%
-      800: Color(0xFFF9500A), //80%
-      900: Color(0xFFF9500A), //80%
+      50: Color(0xFF0D1424), //10%
+      100: Color(0xFF0D1424), //20%
+      200: Color(0xFF0D1424), //30%
+      300: Color(0xFF0D1424), //40%
+      400: Color(0xFF0D1424), //50%
+      500: Color(0xFF0D1424), //60%
+      600: Color(0xFF0D1424), //70%
+      700: Color(0xFF0D1424), //80%
+      800: Color(0xFF0D1424), //80%
+      900: Color(0xFF0D1424), //80%
     },
   );
   static ThemeData get mainTheme {

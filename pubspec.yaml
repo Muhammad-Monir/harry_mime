@@ -68,6 +68,9 @@ dependencies:
 
 
 dev_dependencies:
+  dependency_validator: ^3.0.0
+  build_runner:
+  flutter_gen_runner:
   flutter_test:
     sdk: flutter
 
@@ -77,6 +80,26 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+flutter_gen:
+  # Optional
+  output: lib/gen/
+  # Optional
+  line_length: 80
+
+  # Optional
+  integrations:
+    flutter_svg: false
+    flare_flutter: false
+    rive: false
+    lottie: false
+    
+  colors:
+    inputs:
+      - assets/color/colors.xml
+      - assets/color/order_status_color.xml
+      - assets/color/delevery_status_color.xml
+    outputs:
+      class_name: AppColors
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -96,6 +119,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/lottie/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

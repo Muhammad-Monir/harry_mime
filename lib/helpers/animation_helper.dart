@@ -85,13 +85,16 @@ Widget Function(
           ),
         );
 
-Widget Function(BuildContext context, Widget child, ImageChunkEvent? loadingProgress) imageSimmer(double? size) =>
+Widget Function(BuildContext context, Widget child,
+    ImageChunkEvent? loadingProgress) imageSimmer(
+        double? size) =>
     (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
       if (loadingProgress == null) {
         return child;
       }
       return Center(
-        child: Lottie.asset(Assets.lottie.imageShimmer, height: size, width: size),
+        child:
+            Lottie.asset(Assets.lottie.imageShimmer, height: size, width: size),
       );
     };
 
@@ -99,7 +102,8 @@ Widget imageSimmerCached(double? height) {
   return SizedBox(
     height: height,
     child: Center(
-      child: Lottie.asset(Assets.lottie.imageShimmer, height: height, width: height),
+      child: Lottie.asset(Assets.lottie.imageShimmer,
+          height: height, width: height),
     ),
   );
 }

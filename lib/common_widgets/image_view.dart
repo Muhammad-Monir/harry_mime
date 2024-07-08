@@ -21,7 +21,7 @@ final class ImageView extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0.r),
         border: Border.all(
-          color: AppColors.cEDBB43,
+          //  color: AppColors.cDFE1E6,
           width: 1.5,
         ),
       ),
@@ -32,7 +32,8 @@ final class ImageView extends StatelessWidget {
           ), //NetworkImage(url ?? ''),
           imageErrorBuilder: (context, error, stackTrace) {
             return Image.asset('assets/icons/placeHolder.png',
-                width: width != 0.0 ? width : null, height: height != 0.0 ? height : null);
+                width: width != 0.0 ? width : null,
+                height: height != 0.0 ? height : null);
           },
           fit: BoxFit.cover,
           width: width != 0.0 ? width : null,

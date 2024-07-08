@@ -216,7 +216,7 @@ void showMaterialDialog(
             title: Text(
               "Do you want to exit the app?",
               textAlign: TextAlign.center,
-              style: TextFontStyle.headline14StyleMontserrat,
+              style: TextFontStyle.headline16cDFE1E6Poppins,
             ),
             actions: <Widget>[
               customeButton(
@@ -227,7 +227,7 @@ void showMaterialDialog(
                   height: 30.sp,
                   minWidth: .3.sw,
                   borderRadius: 30.r,
-                  color: AppColors.cF0F0F0,
+                  color: AppColors.cF4F4F4,
                   textStyle: GoogleFonts.montserrat(
                       fontSize: 17.sp,
                       color: AppColors.allPrimaryColor,
