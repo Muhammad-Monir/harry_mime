@@ -39,9 +39,6 @@ class $AssetsIconsGen {
   /// File path: assets/icons/services.svg
   String get services => 'assets/icons/services.svg';
 
-  /// File path: assets/icons/splash_vector.svg
-  String get splashVector => 'assets/icons/splash_vector.svg';
-
   /// File path: assets/icons/technology.svg
   String get technology => 'assets/icons/technology.svg';
 
@@ -56,7 +53,6 @@ class $AssetsIconsGen {
         random,
         saveFill,
         services,
-        splashVector,
         technology
       ];
 }
@@ -72,8 +68,12 @@ class $AssetsImagesGen {
   AssetGenImage get errorProduct =>
       const AssetGenImage('assets/images/error_product.png');
 
+  /// File path: assets/images/splashVector.png
+  AssetGenImage get splashVector =>
+      const AssetGenImage('assets/images/splashVector.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [splashScreen, errorProduct];
+  List<AssetGenImage> get values => [splashScreen, errorProduct, splashVector];
 }
 
 class $AssetsLottieGen {
