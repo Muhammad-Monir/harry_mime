@@ -4,10 +4,10 @@ import 'package:harry_mine/helpers/ui_helpers.dart';
 
 import '../../../../constants/text_font_style.dart';
 
-class CartTitleWidget extends StatelessWidget {
+class SavedItemCartTitleWidget extends StatelessWidget {
   final String title;
   final String details;
-  const CartTitleWidget(
+  const SavedItemCartTitleWidget(
       {super.key, required this.title, required this.details});
 
   @override

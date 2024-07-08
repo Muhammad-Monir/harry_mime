@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
-import 'package:harry_mine/features/saved%20ideas/presentation/widgets/custom_cart.dart';
+import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_item_custom_cart.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
@@ -37,7 +37,7 @@ class SavedIdeasScreen extends StatelessWidget {
         body: ListView.builder(
           physics: const BouncingScrollPhysics(),
           itemCount: 15,
-          itemBuilder: (context, index) => const  CustomCart(
+          itemBuilder: (context, index) => const  SavedItemCustomCart(
           name: "Technology Business",
           capital: "\$1,oo,ooo",
           skills: "Coding, JavaScript",

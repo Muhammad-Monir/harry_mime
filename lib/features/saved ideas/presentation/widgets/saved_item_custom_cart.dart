@@ -6,9 +6,9 @@ import 'package:harry_mine/gen/assets.gen.dart';
 import '../../../../gen/colors.gen.dart';
 import '../../../../helpers/ui_helpers.dart';
 
-class CustomCart extends StatelessWidget {
+class SavedItemCustomCart extends StatelessWidget {
   final String name,capital,skills,employee;
-  const CustomCart({
+  const SavedItemCustomCart({
     super.key,
     required this.name,
     required this.capital,
@@ -49,19 +49,19 @@ class CustomCart extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: [
-                     CartTitleWidget(
+                     SavedItemCartTitleWidget(
                       title: "Name",
                       details: name,
                     ),
-                    CartTitleWidget(
+                    SavedItemCartTitleWidget(
                       title: "Capital",
                       details: capital,
                     ),
-                    CartTitleWidget(
+                    SavedItemCartTitleWidget(
                       title: "Skills",
                       details: skills,
                     ),
-                    CartTitleWidget(
+                    SavedItemCartTitleWidget(
                       title: "Employee",
                       details: employee,
                     ),
