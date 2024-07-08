@@ -58,6 +58,9 @@ class AppColors {
   /// Color: #FFFFFFFF
   static const Color cFFFFFF = Color(0xFFFFFFFF);
 
+  /// Color: #FF1B294B
+  static const Color containerColor = Color(0xFF1B294B);
+
   /// Color: #FF709B72
   static const Color creditHighliteColor = Color(0xFF709B72);
 
@@ -136,8 +139,8 @@ class AppColors {
   /// Color: #FFFBFBFB
   static const Color scaffoldColor = Color(0xFFFBFBFB);
 
-  /// Color: #FF444242
-  static const Color secondaryColor = Color(0xFF444242);
+  /// Color: #FF121B31
+  static const Color secoundaryColor = Color(0xFF121B31);
 
   /// Color: #FFF1F2F7
   static const Color shadowText = Color(0xFFF1F2F7);

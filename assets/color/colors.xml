@@ -2,6 +2,8 @@
 <colors>
 
   <color name="allPrimaryColor">#FF0D1424</color>
+  <color name="secoundaryColor">#FF121B31</color>
+  <color name="containerColor">#FF1B294B</color>
   <color name="cFEFFFE">#FFFEFFFE</color>
  <color name="cA5ADBA">#FFA5ADBA</color>
  <color name="cDFE1E6">#FFDFE1E6</color>
@@ -32,7 +34,7 @@
   <color name="alertButtonColor">#FFFEFFFB</color>
   <color name="white">#FFFFFFFF</color>
   <color name="borderColor">#FFDDDDDD</color>
-  <color name="secondaryColor">#FF444242</color>
+  <!-- <color name="secondaryColor">#FF444242</color> -->
   <color name="shadowText">#FFF1F2F7</color>
   <color name="shadowText2">#FFB0B0B0</color>
  

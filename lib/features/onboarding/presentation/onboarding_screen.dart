@@ -5,8 +5,8 @@ import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
-class Onboarding extends StatelessWidget {
-  const Onboarding({super.key});
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class Onboarding extends StatelessWidget {
                   height: 56.h,
                   minWidth: 343.w,
                   borderRadius: 50.r,
-                  color: Colors.blue,
+                  color: Colors.transparent,
                   textStyle: TextFontStyle.button16primaryPoppins,
                   context: context,
                   gradient: const LinearGradient(

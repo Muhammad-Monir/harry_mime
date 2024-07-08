@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:harry_mine/features/home/presentation/home.dart';
-import 'features/onboarding/presentation/onboarding.dart';
+import 'package:harry_mine/features/saved%20ideas/presentation/saved_ideas_screen.dart';
+import 'features/onboarding/presentation/onboarding_screen.dart';
 import 'helpers/helper_methods.dart';
 import 'constants/app_constants.dart';
 import 'helpers/app_version_updater.dart';
@@ -51,7 +52,7 @@ class _LoadingState extends State<Loading> {
     if (_isLoading) {
       return const WelcomeScreen();
     } else {
-      return Onboarding();
+      return SavedIdeasScreen();
     }
   }
 }
