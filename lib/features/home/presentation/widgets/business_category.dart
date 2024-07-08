@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/gen/colors.gen.dart';
 
 import '../../../../constants/text_font_style.dart';
-import '../../../../gen/assets.gen.dart';
 import '../../../../helpers/ui_helpers.dart';
 
+// ignore: must_be_immutable
 class BusinessCategoryWidget extends StatelessWidget {
   String imagePath;
   String name;
@@ -18,7 +19,8 @@ class BusinessCategoryWidget extends StatelessWidget {
       height: 56.h,
       width: 160.w,
       decoration: BoxDecoration(
-          color: Color(0xff121B31), borderRadius: BorderRadius.circular(10.r)),
+          color: AppColors.secoundaryColor,
+          borderRadius: BorderRadius.circular(10.r)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

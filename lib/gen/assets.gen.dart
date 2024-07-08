@@ -15,6 +15,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
 
+  /// File path: assets/icons/arrow_left.png
+  AssetGenImage get arrowLeft =>
+      const AssetGenImage('assets/icons/arrow_left.png');
+
   /// File path: assets/icons/capital.png
   AssetGenImage get capital => const AssetGenImage('assets/icons/capital.png');
 
@@ -39,6 +43,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/save.png
   AssetGenImage get save => const AssetGenImage('assets/icons/save.png');
 
+  /// File path: assets/icons/save_fill.png
+  AssetGenImage get saveFill =>
+      const AssetGenImage('assets/icons/save_fill.png');
+
   /// File path: assets/icons/services.png
   AssetGenImage get services =>
       const AssetGenImage('assets/icons/services.png');
@@ -56,6 +64,7 @@ class $AssetsIconsGen {
   /// List of all assets
   List<dynamic> get values => [
         apple,
+        arrowLeft,
         capital,
         finance,
         forward,
@@ -64,6 +73,7 @@ class $AssetsIconsGen {
         people,
         random,
         save,
+        saveFill,
         services,
         skills,
         technology,

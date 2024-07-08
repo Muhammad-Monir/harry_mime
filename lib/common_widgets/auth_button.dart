@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// ignore: non_constant_identifier_names
 Widget AuthCustomeButton({
   required String name,
   required VoidCallback onCallBack,
@@ -10,19 +9,25 @@ Widget AuthCustomeButton({
   required Color color,
   required TextStyle textStyle,
   required BuildContext context,
+  required Gradient gradient,
 }) {
-  return MaterialButton(
-    onPressed: onCallBack,
+  return Container(
     height: height,
-    minWidth: minWidth,
-    shape: RoundedRectangleBorder(
+    width: minWidth,
+    decoration: BoxDecoration(
+      gradient: gradient,
       borderRadius: BorderRadius.circular(borderRadius),
     ),
-    color: color,
-    splashColor: Colors.white.withOpacity(0.4),
-    child: Text(
-      name,
-      style: textStyle,
+    child: MaterialButton(
+      onPressed: onCallBack,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
+      splashColor: Colors.white.withOpacity(0.4),
+      child: Text(
+        name,
+        style: textStyle,
+      ),
     ),
   );
 }
