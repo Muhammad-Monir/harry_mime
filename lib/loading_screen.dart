@@ -52,7 +52,7 @@ class _LoadingState extends State<Loading> {
     if (_isLoading) {
       return const WelcomeScreen();
     } else {
-      return SavedIdeasScreen();
+      return const OnboardingScreen();
     }
   }
 }

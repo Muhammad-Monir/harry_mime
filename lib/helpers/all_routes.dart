@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import '../features/home/presentation/home.dart';
+import '../features/saved ideas/presentation/saved_ideas_screen.dart';
 
 final class Routes {
   static final Routes _routes = Routes._internal();
@@ -8,6 +9,7 @@ final class Routes {
   static Routes get instance => _routes;
 
   static const String home = '/home';
+  static const String savedIdeas = '/saved_ideas';
 }
 
 final class RouteGenerator {
@@ -23,6 +25,12 @@ final class RouteGenerator {
                 widget: const ScreenTitle(widget: HomeScreen()),
                 settings: settings)
             : CupertinoPageRoute(builder: (context) => const HomeScreen());
+      case Routes.savedIdeas:
+        return Platform.isAndroid
+            ? _FadedTransitionRoute(
+                              widget: const ScreenTitle(widget: SavedIdeasScreen()),
+                settings: settings)
+            : CupertinoPageRoute(builder: (context) => const SavedIdeasScreen());
 
       default:
         return null;

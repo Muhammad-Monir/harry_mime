@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/common_widgets/auth_button.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
+import 'package:harry_mine/helpers/all_routes.dart';
+import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -44,7 +46,9 @@ class OnboardingScreen extends StatelessWidget {
                 UIHelper.verticalSpaceLarge,
                 AuthCustomeButton(
                   name: "GET STARTED",
-                  onCallBack: () {},
+                  onCallBack: () {
+                    NavigationService.navigateTo(Routes.savedIdeas);
+                  },
                   height: 56.h,
                   minWidth: 343.w,
                   borderRadius: 50.r,
