@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/constants/text_font_style.dart';
+import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
+
+import 'widgets/business_category.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,63 +18,125 @@ class HomeScreen extends StatelessWidget {
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.all(UIHelper.kDefaulutPadding()),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    height: 60.h,
-                    width: 60.w,
-                    child: Image(image: AssetImage(Assets.icons.logo.path)),
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  UIHelper.verticalSpace(24.h),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: 60.h,
+                      width: 60.w,
+                      child: Image(image: AssetImage(Assets.icons.logo.path)),
+                    ),
                   ),
-                ),
-                Text('Grow Your Business'),
-                Wrap(
-                  children: [Container()],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Creative Business Ideas'),
-                    Text('Saved'),
-                  ],
-                ),
-                Container(
-                  child: Column(
+                  UIHelper.verticalSpace(24.h),
+                  Text(
+                    'Grow Your Business',
+                    style: TextFontStyle.headline32FFFFFFRoboto500
+                        .copyWith(fontSize: 20.sp),
+                  ),
+                  UIHelper.verticalSpace(24.h),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    runSpacing: 8.h,
+                    spacing: 8.w,
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Image(
-                              image: AssetImage(Assets.icons.user.path),
-                              height: 32,
-                            ),
-                            Text(
-                              'Name',
-                            )
-                          ],
-                        ),
-                      )
+                      BusinessCategoryWidget(
+                        name: 'Technology',
+                        imagePath: Assets.icons.technology.path,
+                      ),
+                      BusinessCategoryWidget(
+                        name: 'Finance',
+                        imagePath: Assets.icons.finance.path,
+                      ),
+                      BusinessCategoryWidget(
+                        name: 'Health',
+                        imagePath: Assets.icons.health.path,
+                      ),
+                      BusinessCategoryWidget(
+                        name: 'Services',
+                        imagePath: Assets.icons.services.path,
+                      ),
+                      BusinessCategoryWidget(
+                        name: 'Random',
+                        imagePath: Assets.icons.random.path,
+                      ),
                     ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image(
-                      image: AssetImage(
-                        Assets.icons.save.path,
+                  UIHelper.verticalSpace(40.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Creative Business Ideas',
+                        style: TextFontStyle.headline32FFFFFFRoboto500
+                            .copyWith(fontSize: 20.sp),
                       ),
-                      height: 32,
+                      Text(
+                        'View All',
+                        style: TextFontStyle.headline32FFFFFFRoboto500.copyWith(
+                            fontSize: 14.sp,
+                            decoration: TextDecoration.underline),
+                      ),
+                    ],
+                  ),
+                  UIHelper.verticalSpace(24.h),
+                  Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 16.h),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.r),
+                        border: Border.all(
+                          color: Color(0xff1B294B),
+                        ),
+                        color: Color(0xff121B31)),
+                    child: Column(
+                      children: [
+                        BusinessIdeaDeatilsWidget(
+                          name: 'Name',
+                          imagePath: Assets.icons.user.path,
+                        ),
+                        UIHelper.verticalSpace(8.h),
+                        BusinessIdeaDeatilsWidget(
+                          name: 'Capital',
+                          imagePath: Assets.icons.capital.path,
+                        ),
+                        UIHelper.verticalSpace(8.h),
+                        BusinessIdeaDeatilsWidget(
+                          name: 'Skills',
+                          imagePath: Assets.icons.skills.path,
+                        ),
+                        UIHelper.verticalSpace(8.h),
+                        BusinessIdeaDeatilsWidget(
+                          name: 'Necessary People',
+                          imagePath: Assets.icons.people.path,
+                        ),
+                      ],
                     ),
-                    Image(
-                      image: AssetImage(Assets.icons.save.path),
-                      height: 32,
-                    )
-                  ],
-                )
-              ],
+                  ),
+                  UIHelper.verticalSpace(24.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image(
+                        image: AssetImage(
+                          Assets.icons.save.path,
+                        ),
+                        height: 56.h,
+                        width: 56.w,
+                      ),
+                      Image(
+                        image: AssetImage(Assets.icons.forward.path),
+                        height: 56.h,
+                        width: 56.w,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ));
