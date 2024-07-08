@@ -4,10 +4,10 @@ import 'package:harry_mine/helpers/ui_helpers.dart';
 
 import '../../../../constants/text_font_style.dart';
 
-class SavedItemCartTitleWidget extends StatelessWidget {
+class SavedIdeaCartTitleWidget extends StatelessWidget {
   final String title;
   final String details;
-  const SavedItemCartTitleWidget(
+  const SavedIdeaCartTitleWidget(
       {super.key, required this.title, required this.details});
 
   @override
@@ -21,9 +21,7 @@ class SavedItemCartTitleWidget extends StatelessWidget {
                 "$title:",
                 style: TextFontStyle.title14cFFFFFFPoppins400,
               )),
-
-              UIHelper.horizontalSpace(5.w),
-              
+          UIHelper.horizontalSpace(5.w),
           Expanded(
               flex: 4,
               child: Text(
