@@ -12,52 +12,62 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/Group.svg
-  String get group => 'assets/icons/Group.svg';
-
   /// File path: assets/icons/apple.svg
   String get apple => 'assets/icons/apple.svg';
 
-  /// File path: assets/icons/arrrow_right.svg
-  String get arrrowRight => 'assets/icons/arrrow_right.svg';
+  /// File path: assets/icons/capital.png
+  AssetGenImage get capital => const AssetGenImage('assets/icons/capital.png');
 
-  /// File path: assets/icons/capital.svg
-  String get capital => 'assets/icons/capital.svg';
+  /// File path: assets/icons/finance.png
+  AssetGenImage get finance => const AssetGenImage('assets/icons/finance.png');
 
-  /// File path: assets/icons/health.svg
-  String get health => 'assets/icons/health.svg';
+  /// File path: assets/icons/forward.png
+  AssetGenImage get forward => const AssetGenImage('assets/icons/forward.png');
 
-  /// File path: assets/icons/logo.svg
-  String get logo => 'assets/icons/logo.svg';
+  /// File path: assets/icons/health.png
+  AssetGenImage get health => const AssetGenImage('assets/icons/health.png');
 
-  /// File path: assets/icons/random.svg
-  String get random => 'assets/icons/random.svg';
+  /// File path: assets/icons/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
-  /// File path: assets/icons/save_fill.svg
-  String get saveFill => 'assets/icons/save_fill.svg';
+  /// File path: assets/icons/people.png
+  AssetGenImage get people => const AssetGenImage('assets/icons/people.png');
 
-  /// File path: assets/icons/services.svg
-  String get services => 'assets/icons/services.svg';
+  /// File path: assets/icons/random.png
+  AssetGenImage get random => const AssetGenImage('assets/icons/random.png');
 
-  /// File path: assets/icons/splash_vector.svg
-  String get splashVector => 'assets/icons/splash_vector.svg';
+  /// File path: assets/icons/save.png
+  AssetGenImage get save => const AssetGenImage('assets/icons/save.png');
 
-  /// File path: assets/icons/technology.svg
-  String get technology => 'assets/icons/technology.svg';
+  /// File path: assets/icons/services.png
+  AssetGenImage get services =>
+      const AssetGenImage('assets/icons/services.png');
+
+  /// File path: assets/icons/skills.png
+  AssetGenImage get skills => const AssetGenImage('assets/icons/skills.png');
+
+  /// File path: assets/icons/technology.png
+  AssetGenImage get technology =>
+      const AssetGenImage('assets/icons/technology.png');
+
+  /// File path: assets/icons/user.png
+  AssetGenImage get user => const AssetGenImage('assets/icons/user.png');
 
   /// List of all assets
-  List<String> get values => [
-        group,
+  List<dynamic> get values => [
         apple,
-        arrrowRight,
         capital,
+        finance,
+        forward,
         health,
         logo,
+        people,
         random,
-        saveFill,
+        save,
         services,
-        splashVector,
-        technology
+        skills,
+        technology,
+        user
       ];
 }
 
@@ -72,8 +82,12 @@ class $AssetsImagesGen {
   AssetGenImage get errorProduct =>
       const AssetGenImage('assets/images/error_product.png');
 
+  /// File path: assets/images/splashVector.png
+  AssetGenImage get splashVector =>
+      const AssetGenImage('assets/images/splashVector.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [splashScreen, errorProduct];
+  List<AssetGenImage> get values => [splashScreen, errorProduct, splashVector];
 }
 
 class $AssetsLottieGen {

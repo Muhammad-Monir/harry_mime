@@ -5,8 +5,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../gen/colors.gen.dart';
-
 final class ImageView extends StatelessWidget {
   final String? url;
   double height;
