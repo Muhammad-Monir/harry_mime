@@ -29,7 +29,7 @@ class _PopupWidgetState extends State<PopupWidget> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Text(language(appData.read(kKeyLanguage)),
-                style: TextFontStyle.headline16cDFE1E6Poppins
+                style: TextFontStyle.headline16cDFE1E6Poppins300
                     .copyWith(color: AppColors.c000000)),
             const Spacer(),
             PopupMenuButton<String>(

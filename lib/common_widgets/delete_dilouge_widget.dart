@@ -23,14 +23,14 @@ deleteButtonDialouge(BuildContext context, String text, VoidCallback callback) {
               SvgPicture.asset(Assets.icons.apple),
               Text(
                 'Are you sure?'.tr,
-                style: TextFontStyle.headline32FFFFFFRoboto
-                    .copyWith(color: Colors.black),
+                // style: TextFontStyle.headline32FFFFFFRoboto
+                //     .copyWith(color: Colors.black),
               ),
               UIHelper.verticalSpaceSmall,
               Text(
                 text.tr,
-                style: TextFontStyle.headline16cDFE1E6Poppins
-                    .copyWith(color: AppColors.allPrimaryColor),
+                // style: TextFontStyle.headline16cDFE1E6Poppins
+                //     .copyWith(color: AppColors.allPrimaryColor),
               ),
               UIHelper.verticalSpaceMedium,
 
@@ -48,7 +48,7 @@ deleteButtonDialouge(BuildContext context, String text, VoidCallback callback) {
                       borderRadius: 8.r,
                       color: AppColors.cFFFFFF,
                       textStyle:
-                          TextFontStyle.headline16cDFE1E6Poppins.copyWith(
+                          TextFontStyle.headline16cDFE1E6Poppins300.copyWith(
                         color: AppColors.c000000,
                       ),
                       context: context),
@@ -63,7 +63,7 @@ deleteButtonDialouge(BuildContext context, String text, VoidCallback callback) {
                       minWidth: .25.sw,
                       borderRadius: 8.r,
                       color: AppColors.allPrimaryColor,
-                      textStyle: TextFontStyle.headline16cDFE1E6Poppins
+                      textStyle: TextFontStyle.headline16cDFE1E6Poppins300
                           .copyWith(color: AppColors.white),
                       context: context),
                 ],
