@@ -16,8 +16,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:provider/provider.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
+
 import '../gen/colors.gen.dart';
 import '/helpers/di.dart';
 import '/helpers/toast.dart';
@@ -25,7 +24,6 @@ import '/helpers/toast.dart';
 import '../constants/app_constants.dart';
 
 import '../constants/text_font_style.dart';
-import '../networks/api_acess.dart';
 import '../provider/provides.dart';
 import '../common_widgets/custom_button.dart';
 

@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                   UIHelper.verticalSpace(24.h),
                   Align(
                     alignment: Alignment.center,
-                    child: Container(
+                    child: SizedBox(
                       height: 60.h,
                       width: 60.w,
                       child: Image(image: AssetImage(Assets.icons.logo.path)),
@@ -78,14 +78,15 @@ class HomeScreen extends StatelessWidget {
                             .copyWith(fontSize: 20.sp),
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           NavigationService.navigateTo(Routes.savedIdeas);
                         },
                         child: Text(
                           'View All',
-                          style: TextFontStyle.headline32FFFFFFRoboto500.copyWith(
-                              fontSize: 14.sp,
-                              decoration: TextDecoration.underline),
+                          style: TextFontStyle.headline32FFFFFFRoboto500
+                              .copyWith(
+                                  fontSize: 14.sp,
+                                  decoration: TextDecoration.underline),
                         ),
                       ),
                     ],
@@ -97,9 +98,9 @@ class HomeScreen extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
                         border: Border.all(
-                          color: Color(0xff1B294B),
+                          color: AppColors.containerColor,
                         ),
-                        color: Color(0xff121B31)),
+                        color: AppColors.secoundaryColor),
                     child: Column(
                       children: [
                         BusinessIdeaDeatilsWidget(
@@ -132,13 +133,13 @@ class HomeScreen extends StatelessWidget {
                         image: AssetImage(
                           Assets.icons.save.path,
                         ),
-                        height: 56.h,
-                        width: 56.w,
+                        height: 52.h,
+                        width: 52.w,
                       ),
                       Image(
                         image: AssetImage(Assets.icons.forward.path),
-                        height: 56.h,
-                        width: 56.w,
+                        height: 52.h,
+                        width: 52.w,
                       )
                     ],
                   )
