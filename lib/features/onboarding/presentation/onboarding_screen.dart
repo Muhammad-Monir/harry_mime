@@ -35,25 +35,25 @@ class OnboardingScreen extends StatelessWidget {
                 Text(
                   "Business Ideas Generator",
                   textAlign: TextAlign.center,
-                  style: TextFontStyle.headline32FFFFFFRoboto,
+                  style: TextFontStyle.headline32FFFFFFRoboto500,
                 ),
                 UIHelper.verticalSpaceMedium,
                 Text(
                   "Discover innovative concepts, explore new industries, and embark on your journey to success.",
                   textAlign: TextAlign.center,
-                  style: TextFontStyle.headline16cDFE1E6Poppins,
+                  style: TextFontStyle.headline16cDFE1E6Poppins300,
                 ),
                 UIHelper.verticalSpaceLarge,
                 AuthCustomeButton(
                   name: "GET STARTED",
                   onCallBack: () {
-                    NavigationService.navigateTo(Routes.savedIdeas);
+                    NavigationService.navigateToReplacement(Routes.home);
                   },
                   height: 56.h,
                   minWidth: 343.w,
                   borderRadius: 50.r,
                   color: Colors.transparent,
-                  textStyle: TextFontStyle.button16primaryPoppins,
+                  textStyle: TextFontStyle.button16primaryPoppins600,
                   context: context,
                   gradient: const LinearGradient(
                     colors: [

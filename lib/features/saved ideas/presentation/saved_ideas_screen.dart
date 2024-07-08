@@ -21,7 +21,7 @@ class SavedIdeasScreen extends StatelessWidget {
           ),
           leadingWidth: 40.w,
           title: Text("Save Business Ideas",
-              style: TextFontStyle.headline20cDFE1E6Poppins),
+              style: TextFontStyle.headline20cDFE1E6Poppins500),
           elevation: 0,
           actions: [
             Padding(

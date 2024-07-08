@@ -4,8 +4,10 @@ import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
+import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
+import '../../../helpers/all_routes.dart';
 import 'widgets/business_category.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -75,11 +77,16 @@ class HomeScreen extends StatelessWidget {
                         style: TextFontStyle.headline32FFFFFFRoboto500
                             .copyWith(fontSize: 20.sp),
                       ),
-                      Text(
-                        'View All',
-                        style: TextFontStyle.headline32FFFFFFRoboto500.copyWith(
-                            fontSize: 14.sp,
-                            decoration: TextDecoration.underline),
+                      GestureDetector(
+                        onTap: (){
+                          NavigationService.navigateTo(Routes.savedIdeas);
+                        },
+                        child: Text(
+                          'View All',
+                          style: TextFontStyle.headline32FFFFFFRoboto500.copyWith(
+                              fontSize: 14.sp,
+                              decoration: TextDecoration.underline),
+                        ),
                       ),
                     ],
                   ),

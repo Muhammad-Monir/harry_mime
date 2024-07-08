@@ -22,13 +22,13 @@ final class RouteGenerator {
       case Routes.home:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
-                widget: const ScreenTitle(widget: HomeScreen()),
+                widget: const  HomeScreen(),
                 settings: settings)
             : CupertinoPageRoute(builder: (context) => const HomeScreen());
       case Routes.savedIdeas:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
-                              widget: const ScreenTitle(widget: SavedIdeasScreen()),
+                              widget: const  SavedIdeasScreen(),
                 settings: settings)
             : CupertinoPageRoute(builder: (context) => const SavedIdeasScreen());
 

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../constants/text_font_style.dart';
-import '../../../../gen/assets.gen.dart';
 import '../../../../helpers/ui_helpers.dart';
 
+// ignore: must_be_immutable
 class BusinessCategoryWidget extends StatelessWidget {
   String imagePath;
   String name;

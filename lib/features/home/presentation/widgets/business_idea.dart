@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
-import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
 class BusinessIdeaDeatilsWidget extends StatelessWidget {

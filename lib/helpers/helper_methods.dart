@@ -183,7 +183,7 @@ Future<void> initiInternetChecker() async {
       .listen((status) {
     switch (status) {
       case InternetConnectionStatus.connected:
-        ToastUtil.showShortToast('Data connection is available.'.tr);
+        // ToastUtil.showShortToast('Data connection is available.'.tr);
         break;
       case InternetConnectionStatus.disconnected:
         ToastUtil.showNoInternetToast();
