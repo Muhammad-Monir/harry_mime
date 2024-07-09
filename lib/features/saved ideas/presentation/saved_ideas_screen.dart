@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_idea_custom_cart.dart';
@@ -8,6 +9,7 @@ import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
 import '../../../helpers/dao_access.dart';
+import '../../../helpers/db.dart';
 
 class SavedIdeasScreen extends StatefulWidget {
   const SavedIdeasScreen({super.key});
@@ -70,15 +72,40 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
                         BusinessModel dataModel = dataList[index];
-                        return SavedIdeaCustomCart(
-                          name: dataModel.name,
-                          capital: dataModel.capital.toString(),
-                          skills: dataModel.skills,
-                          employee: dataModel.necessaryPeople,
+                        return GestureDetector(
+                          // onTap: () async {
+                          //   await DbUtil().deleteData(table: TableConstant.kSaveTableName, where: 'uid = ?', id: 1);
+                          //   getBusinessRX.fetchCartData();
+
+                          // },
+                          child: SavedIdeaCustomCart(
+                            name: dataModel.name,
+                            capital: dataModel.capital.toString(),
+                            skills: dataModel.skills,
+                            employee: dataModel.necessaryPeople,
+                          ),
                         );
                       });
                 }
               }
-            }));
+            }),
+            // floatingActionButton: FloatingActionButton(
+            //   onPressed: () async {
+            //     await DbUtil().saveData(TableConstant.kSaveTableName, BusinessModel(
+            //       uid: 1, 
+            //       categoryId: "1", 
+            //       name: "Technology", 
+            //       capital: 1000000, 
+            //       skills: "Flutter, Dart, C++, Java", 
+            //       necessaryPeople: "2-50"
+            //       ).toJson()
+            //       );
+            //       getBusinessRX.fetchCartData();
+            //   },
+            //   child: Icon(Icons.add),
+            //   ),
+            
+            
+            );
   }
 }

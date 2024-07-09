@@ -30,7 +30,7 @@ final class DbSingleton {
     batch.execute('''
        create TABLE ${TableConstant.kSaveTableName}
        (
-       ${TableConstant.kId} TEXT PRIMARY KEY,
+       ${TableConstant.kId} INTEGER PRIMARY KEY,
        ${TableConstant.kCategoryId} TEXT,
        ${TableConstant.kname} TEXT,
        ${TableConstant.kcapital} TEXT,

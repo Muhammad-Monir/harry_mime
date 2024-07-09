@@ -3,7 +3,7 @@ final class TableConstant {
   static const kSaveTableName = 'savedIdeas';
 
   //fields
-  static const kId = 'iid';
+  static const kId = 'uid';
   static const kCategoryId = 'category_id';
   static const kname = 'name';
   static const kcapital = 'capital';

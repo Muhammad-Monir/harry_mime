@@ -21,7 +21,7 @@ class DbUtil {
       DbSingleton.instance.db.rawQuery(query);
 
   Future<int> deleteData(
-          {required String table, required String where, required String id}) =>
+          {required String table, required String where, required int id}) =>
       DbSingleton.instance.db.delete(table, where: where, whereArgs: [id]);
 
   Future<void> insertBatchData(
