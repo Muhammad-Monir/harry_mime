@@ -9,8 +9,11 @@ final class GetAllBusinessDao {
   static GetAllBusinessDao get instance => _singleton;
   Future<List<BusinessModel>> fetchAllBusiness() async {
     try {
-      List<Map<String, dynamic>> resultdata =  await  DbUtil().getAllData(TableConstant.kSaveTableName);
-      List<BusinessModel> list = List.generate(resultdata.length, (i) { return BusinessModel.fromJson(resultdata[i]);});
+      List<Map<String, dynamic>> resultdata =
+          await DbUtil().getAllData(TableConstant.kSaveTableName);
+      List<BusinessModel> list = List.generate(resultdata.length, (i) {
+        return BusinessModel.fromJson(resultdata[i]);
+      });
       return list;
     } catch (error) {
       // Handle generic errors
@@ -18,5 +21,3 @@ final class GetAllBusinessDao {
     }
   }
 }
-
-

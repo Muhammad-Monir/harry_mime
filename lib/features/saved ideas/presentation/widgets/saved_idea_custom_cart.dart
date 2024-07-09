@@ -83,14 +83,14 @@ class SavedIdeaCustomCart extends StatelessWidget {
               right: 8.w,
               child: InkWell(
                   onTap: () async {
-                    try{
+                    try {
                       await DbUtil().deleteData(
-                        table: TableConstant.kSaveTableName,
-                        where: 'uid = ?',
-                        id: id);
-                    getBusinessRX.fetchCartData();
-                    ToastUtil.showShortToast("Item Delete Success");
-                    } catch(e){
+                          table: TableConstant.kSaveTableName,
+                          where: 'uid = ?',
+                          id: id);
+                      getBusinessRX.fetchCartData();
+                      ToastUtil.showShortToast("Item Delete Success");
+                    } catch (e) {
                       rethrow;
                     }
                   },
