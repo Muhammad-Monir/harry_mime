@@ -22,6 +22,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/capital.png
   AssetGenImage get capital => const AssetGenImage('assets/icons/capital.png');
 
+  /// File path: assets/icons/detele_icon.png
+  AssetGenImage get deteleIcon =>
+      const AssetGenImage('assets/icons/detele_icon.png');
+
   /// File path: assets/icons/finance.png
   AssetGenImage get finance => const AssetGenImage('assets/icons/finance.png');
 
@@ -66,6 +70,7 @@ class $AssetsIconsGen {
         apple,
         arrowLeft,
         capital,
+        deteleIcon,
         finance,
         forward,
         health,
