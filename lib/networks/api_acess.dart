@@ -1,14 +1,12 @@
-// import 'package:rxdart/subjects.dart';
+import 'package:harry_mine/features/home/model/idea_model.dart';
+import 'package:rxdart/subjects.dart';
+import '../features/home/data/rx_get_all_shop/rx.dart';
 
-// import '../features/home/data/rx_get_all_shop/rx.dart';
-// import '../features/home/data/rx_get_slider/rx.dart';
-// import '../features/home/data/rx_post_default_delivery_address/rx.dart';
-// import '../features/home/data/rx_get_shop_category/rx.dart';
+GetIdeaRx getIdeaRXObj =
+    GetIdeaRx(empty: IdeaModel(), dataFetcher: BehaviorSubject<IdeaModel>());
 
-// import '../helpers/default_response_model.dart';
 
-// GetLoginRX getLoginRXObj = GetLoginRX(
-//     empty: LoginResponse(), dataFetcher: BehaviorSubject<LoginResponse>());
+    
 // GetAllShopCategoryRX getAllShopCategoryRXObj =
 //     GetAllShopCategoryRX(empty: {}, dataFetcher: BehaviorSubject<Map>());
 // GetAllSubCategoryRX getAllSubCategoryRXObj =

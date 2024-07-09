@@ -7,8 +7,12 @@ import 'package:harry_mine/helpers/ui_helpers.dart';
 class BusinessIdeaDeatilsWidget extends StatelessWidget {
   String imagePath;
   String name;
+  Color custColor;
   BusinessIdeaDeatilsWidget(
-      {super.key, required this.name, required this.imagePath});
+      {super.key,
+      required this.name,
+      required this.imagePath,
+      this.custColor = AppColors.cF404754});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,7 @@ class BusinessIdeaDeatilsWidget extends StatelessWidget {
               Text(
                 name,
                 style: TextFontStyle.headline16cDFE1E6Poppins300
-                    .copyWith(fontSize: 14.sp, color: AppColors.cF404754),
+                    .copyWith(fontSize: 14.sp, color: custColor),
               )
             ],
           ),

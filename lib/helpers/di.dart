@@ -20,10 +20,11 @@ void diSetup() {
 
 
   locator.registerLazySingleton(() => FirebaseMessaging.instance);
+  //locator.registerLazySingleton(() => FirebaseMessaging.instance);
   locator.registerSingleton<GetStorage>(GetStorage());
   // locator.registerSingleton<WebViewController>(WebViewController());
-  locator.registerSingleton<DistanceProvider>(DistanceProvider());
-  locator.registerSingleton<GenericDi>(GenericDi());
-  locator.registerSingleton<PlcaeMarkAddress>(PlcaeMarkAddress());
+  //locator.registerSingleton<DistanceProvider>(DistanceProvider());
+  locator.registerSingleton<GenericDi>(
+      GenericDi()); //locator.registerSingleton<PlcaeMarkAddress>(PlcaeMarkAddress());
   // locator.registerSingleton<DefaultAddress>(DefaultAddress());
 }
