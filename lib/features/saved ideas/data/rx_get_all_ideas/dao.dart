@@ -1,6 +1,6 @@
 import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
-import 'package:harry_mine/helpers/db.dart';
+import 'package:harry_mine/helpers/db_util.dart';
 import '../../../../networks/exception_handler/data_source.dart';
 
 final class GetAllBusinessDao {

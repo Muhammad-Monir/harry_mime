@@ -7,7 +7,7 @@ import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
-import 'package:harry_mine/helpers/db.dart';
+import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/toast.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_idea_cart_title_widget.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/helpers/dao_access.dart';
-import 'package:harry_mine/helpers/db.dart';
+import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/helpers/toast.dart';
 
 import '../../../../constants/table_constants.dart';
