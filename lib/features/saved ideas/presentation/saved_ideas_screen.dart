@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
+import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_idea_custom_cart.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
-class SavedIdeasScreen extends StatelessWidget {
+import '../../../helpers/dao_access.dart';
+
+class SavedIdeasScreen extends StatefulWidget {
   const SavedIdeasScreen({super.key});
+
+  @override
+  State<SavedIdeasScreen> createState() => _SavedIdeasScreenState();
+}
+
+class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
+  @override
+  void initState() {
+    super.initState();
+    getBusinessRX.fetchCartData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,14 +48,37 @@ class SavedIdeasScreen extends StatelessWidget {
             )
           ],
         ),
-        body: ListView.builder(
-            physics: const BouncingScrollPhysics(),
-            itemCount: 15,
-            itemBuilder: (context, index) => const SavedIdeaCustomCart(
-                  name: "Technology Business",
-                  capital: "\$1,oo,ooo",
-                  skills: "Coding, JavaScript",
-                  employee: "2 - 10",
-                )));
+        body: StreamBuilder(
+            stream: getBusinessRX.getBusinessData,
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else {
+                List<BusinessModel> dataList = snapshot.data["data"];
+                if (dataList.isEmpty) {
+                  return Center(
+                    child: Text(
+                      "No Saved Business Found!",
+                      style: TextFontStyle.title14cFFFFFFPoppins400,
+                    ),
+                  );
+                } else {
+                  return ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: dataList.length,
+                      itemBuilder: (context, index) {
+                        BusinessModel dataModel = dataList[index];
+                        return SavedIdeaCustomCart(
+                          name: dataModel.name,
+                          capital: dataModel.capital.toString(),
+                          skills: dataModel.skills,
+                          employee: dataModel.necessaryPeople,
+                        );
+                      });
+                }
+              }
+            }));
   }
 }
