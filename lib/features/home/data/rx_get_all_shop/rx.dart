@@ -1,63 +1,28 @@
-// import 'dart:async';
-// import 'dart:developer';
-// import 'package:rxdart/rxdart.dart';
-// import '../../../../helpers/di.dart';
-// import '/constants/app_constants.dart';
-// import '../../../../networks/rx_base.dart';
-// import '../../../../networks/api_acess.dart';
-// import 'api.dart';
+import 'dart:async';
 
-// final class GetAllShopRX extends RxResponseInt {
-//   final api = GetAllShopApi.instance;
+import 'package:harry_mine/features/home/model/idea_model.dart';
+import 'package:rxdart/rxdart.dart';
 
-//   final BehaviorSubject<String> _textSearch = BehaviorSubject<String>();
+import '../../../../networks/rx_base.dart';
 
-//   GetAllShopRX({required super.empty, required super.dataFetcher});
+import 'api.dart';
 
-//   ValueStream get getAllShopData => dataFetcher.stream;
-//   ValueStream<String> get sfetch => _textSearch.stream;
+final class GetIdeaRx extends RxResponseInt<IdeaModel> {
+  final api = GetIdea.instance;
 
-//   StreamTransformer<Map, Map> streamTransformer =
-//       StreamTransformer<Map, Map>.fromHandlers(
-//     handleData: (data, sink) {
-//       if (getAllShopRXObj.sfetch.hasValue &&
-//           getAllShopRXObj.sfetch.value.isNotEmpty) {
-//         Map<dynamic, dynamic> filtermap = <dynamic, dynamic>{};
-//         Map<dynamic, dynamic> returnMap = <dynamic, dynamic>{};
-//         Map<dynamic, dynamic> childMap = <dynamic, dynamic>{};
-//         List searchList = data["data"]["restaurants"]["data"];
-//         List filterList = [];
+  //final BehaviorSubject<String> _textSearch = BehaviorSubject<String>();
 
-//         for (var element in searchList) {
-//           log(element.toString());
-//           if ((element['name'].toString().toUpperCase().isNotEmpty) &&
-//               (element['name'].toString().toUpperCase().contains(getAllShopRXObj
-//                   .sfetch.value
-//                   .toString()
-//                   .toUpperCase()
-//                   .trim()))) {
-//             filterList.add(element);
-//             childMap["data"] = filterList;
-//             filtermap["restaurants"] = childMap;
-//             returnMap["data"] = filtermap;
-//             sink.add(returnMap);
-//           }
-//         }
-//       } else {
-//         sink.add(data);
-//       }
-//     },
-//   );
+  GetIdeaRx({required super.empty, required super.dataFetcher});
 
-//   Future<void> fetchAllShopData() async {
-//     try {
-//       Map allShopData = await api.fetchAllShop(
-//           appData.read(kKeySelectedLat), appData.read(kKeySelectedLng));
-//       handleSuccessWithReturn(allShopData);
-//     } catch (error) {
-//       handleErrorWithReturn(error);
-//     }
-//   }
+  ValueStream get getIdeaData => dataFetcher.stream;
 
-//   searchText(String text) => _textSearch.sink.add(text);
-// }
+  Future<void> fetchIdeaData(id, {pageNum}) async {
+    try {
+      Map<String, dynamic> ideaData = await api.fetchIdea(id, pageNum);
+      IdeaModel ideaModel = IdeaModel.fromJson(ideaData);
+      handleSuccessWithReturn(ideaModel);
+    } catch (error) {
+      handleErrorWithReturn(error);
+    }
+  }
+}
