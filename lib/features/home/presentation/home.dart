@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
+import 'package:harry_mine/features/home/model/category_model.dart';
 import 'package:harry_mine/features/home/model/idea_model.dart';
 import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart';
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
@@ -12,6 +13,7 @@ import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/toast.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 import 'package:harry_mine/networks/api_acess.dart';
+import 'package:harry_mine/networks/endpoints.dart';
 
 import '../../../helpers/all_routes.dart';
 import 'widgets/business_category.dart';
@@ -49,56 +51,113 @@ class HomeScreen extends StatelessWidget {
                         .copyWith(fontSize: 20.sp),
                   ),
                   UIHelper.verticalSpace(14.h),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    runSpacing: 8.h,
-                    spacing: 8.w,
-                    children: [
-                      BusinessCategoryWidget(
-                        name: 'Technology',
-                        imagePath: Assets.icons.technology.path,
-                        onTap: () {
-                          currentId = 1;
-                          pageNum = 1;
-                          getIdeaRXObj.fetchIdeaData(currentId,
-                              pageNum: pageNum);
-                        },
-                      ),
-                      BusinessCategoryWidget(
-                        name: 'Finance',
-                        imagePath: Assets.icons.finance.path,
-                        onTap: () {
-                          currentId = 2;
-                          pageNum = 1;
-                          getIdeaRXObj.fetchIdeaData(currentId,
-                              pageNum: pageNum);
-                        },
-                      ),
-                      BusinessCategoryWidget(
-                        name: 'Health',
-                        imagePath: Assets.icons.health.path,
-                        onTap: () {
-                          currentId = 3;
-                          pageNum = 1;
-                          getIdeaRXObj.fetchIdeaData(currentId,
-                              pageNum: pageNum);
-                        },
-                      ),
-                      BusinessCategoryWidget(
-                        name: 'Services',
-                        imagePath: Assets.icons.services.path,
-                        onTap: () {
-                          currentId = 4;
-                          pageNum = 1;
-                          getIdeaRXObj.fetchIdeaData(currentId,
-                              pageNum: pageNum);
-                        },
-                      ),
-                      BusinessCategoryWidget(
-                        name: 'Random',
-                        imagePath: Assets.icons.random.path,
-                      ),
-                    ],
+                  Container(
+                    child: StreamBuilder(
+                        stream: getCategotyObj.getCategoryData,
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData || snapshot.data != null) {
+                            CategoryModel categoryModeldata = snapshot.data;
+                            return SizedBox(
+                              child: GridView.builder(
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: 5,
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      SliverGridDelegateWithMaxCrossAxisExtent(
+                                    mainAxisExtent: 48.h,
+                                    maxCrossAxisExtent:
+                                        170.w, // Maximum width of each item
+                                    crossAxisSpacing: 10.0,
+                                    mainAxisSpacing: 10.0,
+                                    childAspectRatio: 1.0,
+                                  ),
+                                  itemBuilder: (context, index) {
+                                    return BusinessCategoryWidget(
+                                        name: categoryModeldata
+                                            .data![index].name
+                                            .toString(),
+                                        imagePath: url +
+                                            categoryModeldata.data![index].image
+                                                .toString());
+                                  }),
+                            );
+                            // Container(
+                            //   child: Wrap(
+                            //     alignment: WrapAlignment.center,
+                            //     runSpacing: 8.h,
+                            //     spacing: 8.w,
+                            //     children: [
+                            //       BusinessCategoryWidget(
+                            //         name: 'Technology',
+                            //         imagePath: Assets.icons.technology.path,
+                            //         onTap: () {
+                            //           currentId = 1;
+                            //           pageNum = 1;
+                            //           getIdeaRXObj.fetchIdeaData(currentId,
+                            //               pageNum: pageNum);
+                            //         },
+                            //       ),
+                            //       BusinessCategoryWidget(
+                            //         name: 'Finance',
+                            //         imagePath: Assets.icons.finance.path,
+                            //         onTap: () {
+                            //           currentId = 2;
+                            //           pageNum = 1;
+                            //           getIdeaRXObj.fetchIdeaData(currentId,
+                            //               pageNum: pageNum);
+                            //         },
+                            //       ),
+                            //       BusinessCategoryWidget(
+                            //         name: 'Health',
+                            //         imagePath: Assets.icons.health.path,
+                            //         onTap: () {
+                            //           currentId = 3;
+                            //           pageNum = 1;
+                            //           getIdeaRXObj.fetchIdeaData(currentId,
+                            //               pageNum: pageNum);
+                            //         },
+                            //       ),
+                            //       BusinessCategoryWidget(
+                            //         name: 'Services',
+                            //         imagePath: Assets.icons.services.path,
+                            //         onTap: () {
+                            //           currentId = 4;
+                            //           pageNum = 1;
+                            //           getIdeaRXObj.fetchIdeaData(currentId,
+                            //               pageNum: pageNum);
+                            //         },
+                            //       ),
+                            //       BusinessCategoryWidget(
+                            //         name: 'Random',
+                            //         imagePath: Assets.icons.random.path,
+                            //       ),
+                            //     ],
+                            //   ),
+                            // );
+                          } else {
+                            return SizedBox(
+                              child: GridView.builder(
+                                  physics: BouncingScrollPhysics(),
+                                  itemCount: 5,
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      SliverGridDelegateWithMaxCrossAxisExtent(
+                                    mainAxisExtent: 48.h,
+                                    maxCrossAxisExtent:
+                                        170.w, // Maximum width of each item
+                                    crossAxisSpacing: 10.0,
+                                    mainAxisSpacing: 10.0,
+                                    childAspectRatio: 1.0,
+                                  ),
+                                  itemBuilder: (context, index) {
+                                    return BusinessCategoryWidget(
+                                        name: 'Name',
+                                        imagePath:
+                                            Assets.icons.technology.path);
+                                  }),
+                            );
+                          }
+                        }),
                   ),
                   UIHelper.verticalSpace(24.h),
                   Row(
@@ -124,174 +183,196 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   UIHelper.verticalSpace(12.h),
-                  Container(
-                    // padding:
-                    //     EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
-                    // decoration: BoxDecoration(
-                    //     borderRadius: BorderRadius.circular(10.r),
-                    //     border: Border.all(
-                    //       color: AppColors.containerColor,
-                    //     ),
-                    //     color: AppColors.secoundaryColor),
-                    child: StreamBuilder(
-                        stream: getIdeaRXObj.getIdeaData,
-                        builder: (context, snapshot) {
-                          //IdeaModel ideaModel = snapshot.data;
+                  StreamBuilder(
+                      stream: getIdeaRXObj.getIdeaData,
+                      builder: (context, snapshot) {
+                        //IdeaModel ideaModel = snapshot.data;
+                        if (snapshot.hasData && snapshot.data != null) {
+                          IdeaModel ideaModel = snapshot.data;
 
-                          if (snapshot.hasData && snapshot.data != null) {
-                            IdeaModel ideaModel = snapshot.data;
-
-                            return ideaModel.data!.business!.data!.isNotEmpty
-                                ? Column(
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 10.w, vertical: 10.h),
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10.r),
-                                            border: Border.all(
-                                              color: AppColors.containerColor,
-                                            ),
-                                            color: AppColors.secoundaryColor),
-                                        child: Column(
-                                          children: [
-                                            BusinessIdeaDeatilsWidget(
-                                              name: ideaModel.data!.business!
-                                                      .data!.first.name ??
-                                                  'Name',
-                                              imagePath: Assets.icons.user.path,
-                                              custColor: ideaModel
-                                                          .data!
-                                                          .business!
-                                                          .data!
-                                                          .first
-                                                          .name !=
-                                                      null
-                                                  ? AppColors.cFFFFFF
-                                                  : AppColors.cF404754,
-                                            ),
-                                            UIHelper.verticalSpace(8.h),
-                                            BusinessIdeaDeatilsWidget(
-                                              name: ideaModel.data!.business!
-                                                      .data!.first.capital ??
-                                                  'Capital',
-                                              imagePath:
-                                                  Assets.icons.capital.path,
-                                              custColor: ideaModel
-                                                          .data!
-                                                          .business!
-                                                          .data!
-                                                          .first
-                                                          .capital !=
-                                                      null
-                                                  ? AppColors.cFFFFFF
-                                                  : AppColors.cF404754,
-                                            ),
-                                            UIHelper.verticalSpace(8.h),
-                                            BusinessIdeaDeatilsWidget(
-                                              name: ideaModel.data!.business!
-                                                      .data!.first.skills ??
-                                                  'Skills',
-                                              imagePath:
-                                                  Assets.icons.skills.path,
-                                              custColor: ideaModel
-                                                          .data!
-                                                          .business!
-                                                          .data!
-                                                          .first
-                                                          .skills !=
-                                                      null
-                                                  ? AppColors.cFFFFFF
-                                                  : AppColors.cF404754,
-                                            ),
-                                            UIHelper.verticalSpace(8.h),
-                                            BusinessIdeaDeatilsWidget(
-                                              name: ideaModel
-                                                      .data!
-                                                      .business!
-                                                      .data!
-                                                      .first
-                                                      .necessaryPeople ??
-                                                  'Necessary People',
-                                              custColor: ideaModel
-                                                          .data!
-                                                          .business!
-                                                          .data!
-                                                          .first
-                                                          .necessaryPeople !=
-                                                      null
-                                                  ? AppColors.cFFFFFF
-                                                  : AppColors.cF404754,
-                                              imagePath:
-                                                  Assets.icons.people.path,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      UIHelper.verticalSpace(18.h),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () async {
-
-                                              try{
-                                                await DbUtil().saveData(
-                                                
-                                                TableConstant.kSaveTableName, 
-                                                BusinessModel(
-                                                  uid: ideaModel.data! .business!.data! .first.id!, 
-                                                  categoryId: ideaModel.data! .business!.data! .first.categoryId!, 
-                                                  name: ideaModel.data! .business!.data! .first.name!, 
-                                                  capital: ideaModel.data! .business!.data! .first.capital!, 
-                                                  skills: ideaModel.data! .business!.data! .first.skills!, 
-                                                  necessaryPeople: ideaModel.data! .business!.data! .first.necessaryPeople!
-                                                  ).toJson()
-                                                );
-                                                ToastUtil.showShortToast("Item Add Success");
-                                              } catch(e){
-                                                rethrow;
-                                              }
-
-                                            },
-                                            child: Image(
-                                              image: AssetImage(
-                                                Assets.icons.save.path,
-                                              ),
-                                              height: 44.h,
-                                              width: 44.w,
-                                            ),
+                          return ideaModel.data!.business!.data!.isNotEmpty
+                              ? Column(
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 10.w, vertical: 10.h),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10.r),
+                                          border: Border.all(
+                                            color: AppColors.containerColor,
                                           ),
-                                          ideaModel.data!.business!
-                                                      .nextPageUrl ==
-                                                  null
-                                              ? const SizedBox.shrink()
-                                              : GestureDetector(
-                                                  onTap: () {
-                                                    pageNum++;
-                                                    getIdeaRXObj.fetchIdeaData(
-                                                        currentId,
-                                                        pageNum: pageNum);
-                                                  },
-                                                  child: Image(
-                                                    image: AssetImage(Assets
-                                                        .icons.forward.path),
-                                                    height: 44.h,
-                                                    width: 44.w,
-                                                  ),
-                                                )
+                                          color: AppColors.secoundaryColor),
+                                      child: Column(
+                                        children: [
+                                          BusinessIdeaDeatilsWidget(
+                                            name: ideaModel.data!.business!
+                                                    .data!.first.name ??
+                                                'Name',
+                                            imagePath: Assets.icons.user.path,
+                                            custColor: ideaModel.data!.business!
+                                                        .data!.first.name !=
+                                                    null
+                                                ? AppColors.cFFFFFF
+                                                : AppColors.cF404754,
+                                          ),
+                                          UIHelper.verticalSpace(8.h),
+                                          BusinessIdeaDeatilsWidget(
+                                            name: ideaModel.data!.business!
+                                                    .data!.first.capital ??
+                                                'Capital',
+                                            imagePath:
+                                                Assets.icons.capital.path,
+                                            custColor: ideaModel.data!.business!
+                                                        .data!.first.capital !=
+                                                    null
+                                                ? AppColors.cFFFFFF
+                                                : AppColors.cF404754,
+                                          ),
+                                          UIHelper.verticalSpace(8.h),
+                                          BusinessIdeaDeatilsWidget(
+                                            name: ideaModel.data!.business!
+                                                    .data!.first.skills ??
+                                                'Skills',
+                                            imagePath: Assets.icons.skills.path,
+                                            custColor: ideaModel.data!.business!
+                                                        .data!.first.skills !=
+                                                    null
+                                                ? AppColors.cFFFFFF
+                                                : AppColors.cF404754,
+                                          ),
+                                          UIHelper.verticalSpace(8.h),
+                                          BusinessIdeaDeatilsWidget(
+                                            name: ideaModel
+                                                    .data!
+                                                    .business!
+                                                    .data!
+                                                    .first
+                                                    .necessaryPeople ??
+                                                'Necessary People',
+                                            custColor: ideaModel
+                                                        .data!
+                                                        .business!
+                                                        .data!
+                                                        .first
+                                                        .necessaryPeople !=
+                                                    null
+                                                ? AppColors.cFFFFFF
+                                                : AppColors.cF404754,
+                                            imagePath: Assets.icons.people.path,
+                                          ),
                                         ],
-                                      )
-                                    ],
-                                  )
-                                : const SizedBox.shrink();
-                          } else {
-                            return const SizedBox.shrink();
-                          }
-                        }),
-                  ),
+                                      ),
+                                    ),
+                                    UIHelper.verticalSpace(18.h),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        GestureDetector(
+                                          onTap: () async {
+                                            try {
+                                              await DbUtil().saveData(
+                                                  TableConstant.kSaveTableName,
+                                                  BusinessModel(
+                                                          uid: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .id!,
+                                                          categoryId: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .categoryId!,
+                                                          name: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .name!,
+                                                          capital: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .capital!,
+                                                          skills: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .skills!,
+                                                          necessaryPeople: ideaModel
+                                                              .data!
+                                                              .business!
+                                                              .data!
+                                                              .first
+                                                              .necessaryPeople!)
+                                                      .toJson());
+                                              ToastUtil.showShortToast(
+                                                  "Item Add Success");
+                                            } catch (e) {
+                                              rethrow;
+                                            }
+                                          },
+                                          child: Image(
+                                            image: AssetImage(
+                                              Assets.icons.save.path,
+                                            ),
+                                            height: 44.h,
+                                            width: 44.w,
+                                          ),
+                                        ),
+                                        ideaModel.data!.business!.nextPageUrl ==
+                                                null
+                                            ? const SizedBox.shrink()
+                                            : GestureDetector(
+                                                onTap: () {
+                                                  pageNum++;
+                                                  getIdeaRXObj.fetchIdeaData(
+                                                      currentId,
+                                                      pageNum: pageNum);
+                                                },
+                                                child: Image(
+                                                  image: AssetImage(Assets
+                                                      .icons.forward.path),
+                                                  height: 44.h,
+                                                  width: 44.w,
+                                                ),
+                                              )
+                                      ],
+                                    )
+                                  ],
+                                )
+                              : Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    padding: EdgeInsets.only(top: 60.h),
+                                    child: Image(
+                                      image: AssetImage(
+                                          Assets.images.emptyIdea.path),
+                                      height: 230.w,
+                                      width: 260.h,
+                                    ),
+                                  ),
+                                );
+                        } else {
+                          return Align(
+                            alignment: Alignment.center,
+                            child: Container(
+                              padding: EdgeInsets.only(top: 60.h),
+                              child: Image(
+                                image: AssetImage(Assets.images.emptyIdea.path),
+                                height: 230.w,
+                                width: 260.h,
+                              ),
+                            ),
+                          );
+                        }
+                      }),
                 ],
               ),
             ),

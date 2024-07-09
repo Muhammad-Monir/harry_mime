@@ -93,6 +93,10 @@ class $AssetsImagesGen {
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/Splash Screen.png');
 
+  /// File path: assets/images/empty_idea.png
+  AssetGenImage get emptyIdea =>
+      const AssetGenImage('assets/images/empty_idea.png');
+
   /// File path: assets/images/error_product.png
   AssetGenImage get errorProduct =>
       const AssetGenImage('assets/images/error_product.png');
@@ -102,7 +106,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splashVector.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [splashScreen, errorProduct, splashVector];
+  List<AssetGenImage> get values =>
+      [splashScreen, emptyIdea, errorProduct, splashVector];
 }
 
 class $AssetsLottieGen {

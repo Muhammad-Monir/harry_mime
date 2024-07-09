@@ -24,4 +24,5 @@ final class Endpoints {
   Endpoints._();
   static String ideadata(id, pageNum) =>
       "/api/show/category/$id?page=${pageNum ?? ''}";
+  static String categoryData() => "/api/category";
 }
