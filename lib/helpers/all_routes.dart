@@ -21,16 +21,14 @@ final class RouteGenerator {
     switch (settings.name) {
       case Routes.home:
         return Platform.isAndroid
-            ? _FadedTransitionRoute(
-                widget: const  HomeScreen(),
-                settings: settings)
-            : CupertinoPageRoute(builder: (context) => const HomeScreen());
+            ? _FadedTransitionRoute(widget: HomeScreen(), settings: settings)
+            : CupertinoPageRoute(builder: (context) => HomeScreen());
       case Routes.savedIdeas:
         return Platform.isAndroid
             ? _FadedTransitionRoute(
-                              widget: const  SavedIdeasScreen(),
-                settings: settings)
-            : CupertinoPageRoute(builder: (context) => const SavedIdeasScreen());
+                widget: const SavedIdeasScreen(), settings: settings)
+            : CupertinoPageRoute(
+                builder: (context) => const SavedIdeasScreen());
 
       default:
         return null;

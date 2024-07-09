@@ -1,5 +1,4 @@
 import 'package:auto_animated/auto_animated.dart';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,18 +6,15 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import '/helpers/all_routes.dart';
-
 import 'constants/custome_theme.dart';
 import 'helpers/di.dart';
 import 'helpers/helper_methods.dart';
-
 import 'helpers/navigation_service.dart';
-
 import 'helpers/register_provider.dart';
 import 'loading_screen.dart';
 import 'networks/dio/dio.dart';
 
-Future<void> backgroundHandler(RemoteMessage message) async {}
+//Future<void> backgroundHandler(RemoteMessage message) async {}
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
