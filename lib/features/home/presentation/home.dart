@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/features/home/model/idea_model.dart';
 import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart';
+import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
+import 'package:harry_mine/helpers/db.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
+import 'package:harry_mine/helpers/toast.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 import 'package:harry_mine/networks/api_acess.dart';
 
@@ -230,12 +234,35 @@ class HomeScreen extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image(
-                                            image: AssetImage(
-                                              Assets.icons.save.path,
+                                          GestureDetector(
+                                            onTap: () async {
+
+                                              try{
+                                                await DbUtil().saveData(
+                                                
+                                                TableConstant.kSaveTableName, 
+                                                BusinessModel(
+                                                  uid: ideaModel.data! .business!.data! .first.id!, 
+                                                  categoryId: ideaModel.data! .business!.data! .first.categoryId!, 
+                                                  name: ideaModel.data! .business!.data! .first.name!, 
+                                                  capital: ideaModel.data! .business!.data! .first.capital!, 
+                                                  skills: ideaModel.data! .business!.data! .first.skills!, 
+                                                  necessaryPeople: ideaModel.data! .business!.data! .first.necessaryPeople!
+                                                  ).toJson()
+                                                );
+                                                ToastUtil.showShortToast("Item Add Success");
+                                              } catch(e){
+                                                rethrow;
+                                              }
+
+                                            },
+                                            child: Image(
+                                              image: AssetImage(
+                                                Assets.icons.save.path,
+                                              ),
+                                              height: 44.h,
+                                              width: 44.w,
                                             ),
-                                            height: 44.h,
-                                            width: 44.w,
                                           ),
                                           ideaModel.data!.business!
                                                       .nextPageUrl ==

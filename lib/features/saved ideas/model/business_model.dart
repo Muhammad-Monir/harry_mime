@@ -143,7 +143,7 @@ class BusinessModel {
   late int uid;
   late String categoryId;
   late String name;
-  late double capital;
+  late String capital;
   late String skills;
   late String necessaryPeople;
 
@@ -162,7 +162,7 @@ class BusinessModel {
     int? uid,
     String? categoryId,
     String? name,
-    double? capital,
+    String? capital,
     String? skills,
     String? necessaryPeople,
   }) =>
@@ -183,7 +183,7 @@ class BusinessModel {
         uid: int.parse(json["uid"].toString()),
         categoryId: json["category_id"],
         name: json["name"],
-        capital: double.parse(json["capital"].toString()),
+        capital:json["capital"],
         skills: json["skills"],
         necessaryPeople: json["necessary_people"],
       );

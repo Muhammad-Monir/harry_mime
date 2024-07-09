@@ -87,7 +87,7 @@ class SavedIdeaCustomCart extends StatelessWidget {
                       await DbUtil().deleteData(
                         table: TableConstant.kSaveTableName,
                         where: 'uid = ?',
-                        id: 1);
+                        id: id);
                     getBusinessRX.fetchCartData();
                     ToastUtil.showShortToast("Item Delete Success");
                     } catch(e){

@@ -75,7 +75,7 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                         return SavedIdeaCustomCart(
                           id: dataModel.uid,
                           name: dataModel.name,
-                          capital: dataModel.capital.floor().toString(),
+                          capital: dataModel.capital,
                           skills: dataModel.skills,
                           employee: dataModel.necessaryPeople,
                         );
@@ -83,21 +83,21 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                 }
               }
             }),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () async {
-                await DbUtil().saveData(TableConstant.kSaveTableName, BusinessModel(
-                  uid: 1, 
-                  categoryId: "1", 
-                  name: "Technology", 
-                  capital: 1000000, 
-                  skills: "Flutter, Dart, C++, Java", 
-                  necessaryPeople: "2-50"
-                  ).toJson()
-                  );
-                  getBusinessRX.fetchCartData();
-              },
-              child: Icon(Icons.add),
-              ),
+            // floatingActionButton: FloatingActionButton(
+            //   onPressed: () async {
+            //     await DbUtil().saveData(TableConstant.kSaveTableName, BusinessModel(
+            //       uid: 1, 
+            //       categoryId: "1", 
+            //       name: "Technology", 
+            //       capital: "1000000", 
+            //       skills: "Flutter, Dart, C++, Java", 
+            //       necessaryPeople: "2-50"
+            //       ).toJson()
+            //       );
+            //       getBusinessRX.fetchCartData();
+            //   },
+            //   child: Icon(Icons.add),
+            //   ),
             
             
             );
