@@ -61,7 +61,7 @@ class SavedIdeaCustomCart extends StatelessWidget {
                         ),
                         SavedIdeaCartTitleWidget(
                           title: "Capital",
-                          details: capital,
+                          details: "\$$capital",
                         ),
                         SavedIdeaCartTitleWidget(
                           title: "Skills",

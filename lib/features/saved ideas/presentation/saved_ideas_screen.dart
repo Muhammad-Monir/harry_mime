@@ -75,7 +75,7 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                         return SavedIdeaCustomCart(
                           id: dataModel.uid,
                           name: dataModel.name,
-                          capital: dataModel.capital.toString(),
+                          capital: dataModel.capital.floor().toString(),
                           skills: dataModel.skills,
                           employee: dataModel.necessaryPeople,
                         );
