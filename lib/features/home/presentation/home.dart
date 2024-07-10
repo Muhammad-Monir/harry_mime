@@ -18,10 +18,18 @@ import 'package:harry_mine/networks/endpoints.dart';
 import '../../../helpers/all_routes.dart';
 import 'widgets/business_category.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   int pageNum = 1;
+
   int? currentId;
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -58,28 +66,77 @@ class HomeScreen extends StatelessWidget {
                           if (snapshot.hasData || snapshot.data != null) {
                             CategoryModel categoryModeldata = snapshot.data;
                             return SizedBox(
-                              child: GridView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: 5,
-                                  shrinkWrap: true,
-                                  gridDelegate:
-                                      SliverGridDelegateWithMaxCrossAxisExtent(
-                                    mainAxisExtent: 48.h,
-                                    maxCrossAxisExtent:
-                                        170.w, // Maximum width of each item
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 10.0,
-                                    childAspectRatio: 1.0,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    return BusinessCategoryWidget(
-                                        name: categoryModeldata
-                                            .data![index].name
-                                            .toString(),
-                                        imagePath: url +
-                                            categoryModeldata.data![index].image
-                                                .toString());
-                                  }),
+                              child: Column(
+                                children: [
+                                  GridView.builder(
+                                      physics: BouncingScrollPhysics(),
+                                      itemCount:
+                                          categoryModeldata.data!.length % 2 ==
+                                                  0
+                                              ? categoryModeldata.data!.length
+                                              : categoryModeldata.data!.length -
+                                                  1,
+                                      shrinkWrap: true,
+                                      gridDelegate:
+                                          SliverGridDelegateWithMaxCrossAxisExtent(
+                                        mainAxisExtent: 48.h,
+                                        maxCrossAxisExtent:
+                                            170.w, // Maximum width of each item
+                                        crossAxisSpacing: 8.w,
+                                        mainAxisSpacing: 8.h,
+                                        childAspectRatio: 1.0,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        return BusinessCategoryWidget(
+                                            onTap: () {
+                                              currentId = categoryModeldata
+                                                  .data![index].id;
+                                              pageNum = 1;
+                                              getIdeaRXObj.fetchIdeaData(
+                                                  currentId,
+                                                  pageNum: pageNum);
+                                              isSelected = true;
+                                              setState(() {});
+                                            },
+                                            isSelected: currentId == index + 1
+                                                ? true
+                                                : false,
+                                            name: categoryModeldata
+                                                .data![index].name
+                                                .toString(),
+                                            imagePath: url +
+                                                categoryModeldata
+                                                    .data![index].image
+                                                    .toString());
+                                      }),
+                                  UIHelper.verticalSpace(8.h),
+                                  if (categoryModeldata.data!.length % 2 == 1)
+                                    Center(
+                                      child: BusinessCategoryWidget(
+                                          onTap: () {
+                                            isSelected = true;
+                                            setState(() {});
+                                            currentId =
+                                                categoryModeldata.data!.last.id;
+
+                                            getIdeaRXObj.fetchIdeaData(
+                                              currentId,
+                                            );
+                                          },
+                                          isSelected:
+                                              categoryModeldata.data!.last.id ==
+                                                      currentId
+                                                  ? true
+                                                  : false,
+                                          name: categoryModeldata
+                                              .data!.last.name
+                                              .toString(),
+                                          imagePath: url +
+                                              categoryModeldata.data!.last.image
+                                                  .toString()),
+                                    )
+                                ],
+                              ),
                             );
                             // Container(
                             //   child: Wrap(
