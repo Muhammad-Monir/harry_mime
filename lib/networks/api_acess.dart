@@ -1,11 +1,13 @@
-import 'package:harry_mine/features/home/model/idea_model.dart';
+import 'package:harry_mine/features/home/data/rx_get_category/rx.dart';
+import 'package:harry_mine/features/home/model/category_model.dart';
 import 'package:rxdart/subjects.dart';
-import '../features/home/data/rx_get_all_shop/rx.dart';
+import '../features/home/data/rx_get_idea/rx.dart';
 
 GetIdeaRx getIdeaRXObj =
-    GetIdeaRx(empty: IdeaModel(), dataFetcher: BehaviorSubject<IdeaModel>());
+    GetIdeaRx(empty: {}, dataFetcher: BehaviorSubject<Map>());
 
-
+GetCategoryRx getCategotyObj = GetCategoryRx(
+    empty: CategoryModel(), dataFetcher: BehaviorSubject<CategoryModel>());
     
 // GetAllShopCategoryRX getAllShopCategoryRXObj =
 //     GetAllShopCategoryRX(empty: {}, dataFetcher: BehaviorSubject<Map>());

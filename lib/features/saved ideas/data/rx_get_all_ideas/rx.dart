@@ -12,14 +12,17 @@ final class GetBusinessRX extends RxResponseIntl {
   GetBusinessRX({required super.empty, required super.dataFetcher});
 
   ValueStream get getBusinessData => dataFetcher.stream;
+  // List<BusinessModel> businessData = [];
 
   Future<void> fetchCartData() async {
     try {
       List<BusinessModel> businessData = await dao.fetchAllBusiness();
-      Map<String, dynamic> bData = {'data': businessData};
+      List<int> savedIds = businessData.map((e) => e.uid ).toList();
+      Map<String, dynamic> bData = {'data': businessData, 'savedId': savedIds};
       handleSuccessWithReturn(bData);
     } catch (error) {
       handleErrorWithReturn(error);
     }
   }
+
 }

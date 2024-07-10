@@ -1,5 +1,4 @@
 import 'package:auto_animated/auto_animated.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
         child: PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-            showMaterialDialog(context);
+        //    showMaterialDialog(context);
           },
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -69,7 +68,7 @@ class UtillScreenMobile extends StatelessWidget {
         return PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-            showMaterialDialog(context);
+          //  showMaterialDialog(context);
           },
           child: GetMaterialApp(
             //showPerformanceOverlay: true,

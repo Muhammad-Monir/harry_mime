@@ -9,6 +9,19 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Poppins-Regular.ttf
+  String get poppinsRegular => 'assets/fonts/Poppins-Regular.ttf';
+
+  /// File path: assets/fonts/Roboto-Regular.ttf
+  String get robotoRegular => 'assets/fonts/Roboto-Regular.ttf';
+
+  /// List of all assets
+  List<String> get values => [poppinsRegular, robotoRegular];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -51,6 +64,10 @@ class $AssetsIconsGen {
   AssetGenImage get saveFill =>
       const AssetGenImage('assets/icons/save_fill.png');
 
+  /// File path: assets/icons/saved_fill_big.png
+  AssetGenImage get savedFillBig =>
+      const AssetGenImage('assets/icons/saved_fill_big.png');
+
   /// File path: assets/icons/services.png
   AssetGenImage get services =>
       const AssetGenImage('assets/icons/services.png');
@@ -79,6 +96,7 @@ class $AssetsIconsGen {
         random,
         save,
         saveFill,
+        savedFillBig,
         services,
         skills,
         technology,
@@ -93,6 +111,10 @@ class $AssetsImagesGen {
   AssetGenImage get splashScreen =>
       const AssetGenImage('assets/images/Splash Screen.png');
 
+  /// File path: assets/images/empty_idea.png
+  AssetGenImage get emptyIdea =>
+      const AssetGenImage('assets/images/empty_idea.png');
+
   /// File path: assets/images/error_product.png
   AssetGenImage get errorProduct =>
       const AssetGenImage('assets/images/error_product.png');
@@ -102,7 +124,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/splashVector.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [splashScreen, errorProduct, splashVector];
+  List<AssetGenImage> get values =>
+      [splashScreen, emptyIdea, errorProduct, splashVector];
 }
 
 class $AssetsLottieGen {
@@ -193,6 +216,7 @@ class $AssetsLottieGen {
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();

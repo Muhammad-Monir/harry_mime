@@ -29,7 +29,7 @@ class BusinessIdeaDeatilsWidget extends StatelessWidget {
                 image: AssetImage(imagePath),
                 height: 32,
               ),
-              UIHelper.horizontalSpace(5.w),
+              UIHelper.horizontalSpace(14.w),
               Text(
                 name,
                 style: TextFontStyle.headline16cDFE1E6Poppins300

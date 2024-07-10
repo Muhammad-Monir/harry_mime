@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:harry_mine/features/home/data/rx_get_idea/api.dart';
 import 'package:harry_mine/features/home/model/idea_model.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../../../networks/rx_base.dart';
 
-import 'api.dart';
 
 final class GetIdeaRx extends RxResponseInt<IdeaModel> {
   final api = GetIdea.instance;
