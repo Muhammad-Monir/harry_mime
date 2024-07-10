@@ -311,12 +311,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       ),
                                                       height: 44.h,
                                                       width: 44.w,
-                                                    ),
+                                                    ), 
                                                   );
                                                 }
                                               }
                                             }),
-                                         !hasData &&businessModel.categoryId == "5"
+                                        !hasData
                                             ? const SizedBox.shrink()
                                             : GestureDetector(
                                                 onTap: () {
