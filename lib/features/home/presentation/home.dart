@@ -245,9 +245,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context, snapshot) {
                         //IdeaModel ideaModel = snapshot.data;
                         if (snapshot.hasData && snapshot.data != null) {
-                          IdeaModel ideaModel = snapshot.data;
+                          // IdeaModel ideaModel = snapshot.data;
+                          BusinessModel businessModel = snapshot.data['data'];
+                          bool hasData = snapshot.data['hasNext'];
 
-                          return ideaModel.data!.business!.data!.isNotEmpty
+                          return snapshot.data != null
                               ? Column(
                                   children: [
                                     Container(
@@ -263,59 +265,25 @@ class _HomeScreenState extends State<HomeScreen> {
                                       child: Column(
                                         children: [
                                           BusinessIdeaDeatilsWidget(
-                                            name: ideaModel.data!.business!
-                                                    .data!.first.name ??
-                                                'Name',
-                                            imagePath: Assets.icons.user.path,
-                                            custColor: ideaModel.data!.business!
-                                                        .data!.first.name !=
-                                                    null
-                                                ? AppColors.cFFFFFF
-                                                : AppColors.cF404754,
-                                          ),
+                                              name: businessModel.name,
+                                              imagePath: Assets.icons.user.path,
+                                              custColor: AppColors.cFFFFFF),
                                           UIHelper.verticalSpace(8.h),
                                           BusinessIdeaDeatilsWidget(
-                                            name: ideaModel.data!.business!
-                                                    .data!.first.capital ??
-                                                'Capital',
-                                            imagePath:
-                                                Assets.icons.capital.path,
-                                            custColor: ideaModel.data!.business!
-                                                        .data!.first.capital !=
-                                                    null
-                                                ? AppColors.cFFFFFF
-                                                : AppColors.cF404754,
-                                          ),
+                                              name: businessModel.capital,
+                                              imagePath:
+                                                  Assets.icons.capital.path,
+                                              custColor: AppColors.cFFFFFF),
                                           UIHelper.verticalSpace(8.h),
                                           BusinessIdeaDeatilsWidget(
-                                            name: ideaModel.data!.business!
-                                                    .data!.first.skills ??
-                                                'Skills',
-                                            imagePath: Assets.icons.skills.path,
-                                            custColor: ideaModel.data!.business!
-                                                        .data!.first.skills !=
-                                                    null
-                                                ? AppColors.cFFFFFF
-                                                : AppColors.cF404754,
-                                          ),
+                                              name: businessModel.skills,
+                                              imagePath:
+                                                  Assets.icons.skills.path,
+                                              custColor: AppColors.cFFFFFF),
                                           UIHelper.verticalSpace(8.h),
                                           BusinessIdeaDeatilsWidget(
-                                            name: ideaModel
-                                                    .data!
-                                                    .business!
-                                                    .data!
-                                                    .first
-                                                    .necessaryPeople ??
-                                                'Necessary People',
-                                            custColor: ideaModel
-                                                        .data!
-                                                        .business!
-                                                        .data!
-                                                        .first
-                                                        .necessaryPeople !=
-                                                    null
-                                                ? AppColors.cFFFFFF
-                                                : AppColors.cF404754,
+                                            name: businessModel.necessaryPeople,
+                                            custColor: AppColors.cFFFFFF,
                                             imagePath: Assets.icons.people.path,
                                           ),
                                         ],
@@ -332,43 +300,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                               await DbUtil().saveData(
                                                   TableConstant.kSaveTableName,
                                                   BusinessModel(
-                                                          uid: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .id!,
-                                                          categoryId: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .categoryId!,
-                                                          name: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .name!,
-                                                          capital: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .capital!,
-                                                          skills: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .skills!,
-                                                          necessaryPeople: ideaModel
-                                                              .data!
-                                                              .business!
-                                                              .data!
-                                                              .first
-                                                              .necessaryPeople!)
-                                                      .toJson());
+                                                    uid: businessModel.uid,
+                                                    categoryId: businessModel
+                                                        .categoryId,
+                                                    name: businessModel.name,
+                                                    capital:
+                                                        businessModel.capital,
+                                                    skills:
+                                                        businessModel.skills,
+                                                    necessaryPeople:
+                                                        businessModel
+                                                            .necessaryPeople,
+                                                  ).toJson());
                                               ToastUtil.showShortToast(
                                                   "Item Add Success");
                                             } catch (e) {
@@ -383,8 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             width: 44.w,
                                           ),
                                         ),
-                                        ideaModel.data!.business!.nextPageUrl ==
-                                                null
+                                        !hasData
                                             ? const SizedBox.shrink()
                                             : GestureDetector(
                                                 onTap: () {
