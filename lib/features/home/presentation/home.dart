@@ -8,6 +8,7 @@ import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
+import 'package:harry_mine/helpers/dao_access.dart';
 import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/toast.dart';
@@ -248,6 +249,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           // IdeaModel ideaModel = snapshot.data;
                           BusinessModel businessModel = snapshot.data['data'];
                           bool hasData = snapshot.data['hasNext'];
+                          
 
                           return snapshot.data != null
                               ? Column(
@@ -294,37 +296,56 @@ class _HomeScreenState extends State<HomeScreen> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        GestureDetector(
-                                          onTap: () async {
-                                            try {
-                                              await DbUtil().saveData(
-                                                  TableConstant.kSaveTableName,
-                                                  BusinessModel(
-                                                    uid: businessModel.uid,
-                                                    categoryId: businessModel
-                                                        .categoryId,
-                                                    name: businessModel.name,
-                                                    capital:
-                                                        businessModel.capital,
-                                                    skills:
-                                                        businessModel.skills,
-                                                    necessaryPeople:
-                                                        businessModel
-                                                            .necessaryPeople,
-                                                  ).toJson());
-                                              ToastUtil.showShortToast(
-                                                  "Item Add Success");
-                                            } catch (e) {
-                                              rethrow;
+                                        StreamBuilder(
+                                          stream: getBusinessRX.getBusinessData,
+                                          builder: (context, snapshot) {
+                                            List<int> savedIdeasId = snapshot.data['savedId'];
+                                            if(savedIdeasId.contains(businessModel.uid) && snapshot.data !=null){
+                                              return Image(
+                                                image: AssetImage(
+                                                  Assets.icons.savedFillBig.path,
+                                                ),
+                                                height: 44.h,
+                                                width: 44.w,
+                                              );
+                                            } else {
+                                              return GestureDetector(
+                                              onTap: () async {
+                                                try {
+                                                  await DbUtil().saveData(
+                                                      TableConstant.kSaveTableName,
+                                                      BusinessModel(
+                                                        uid: businessModel.uid,
+                                                        categoryId: businessModel
+                                                            .categoryId,
+                                                        name: businessModel.name,
+                                                        capital:
+                                                            businessModel.capital,
+                                                        skills:
+                                                            businessModel.skills,
+                                                        necessaryPeople:
+                                                            businessModel
+                                                                .necessaryPeople,
+                                                      ).toJson());
+                                                      getBusinessRX.fetchCartData();
+                                                  ToastUtil.showShortToast(
+                                                      "Item Add Success");
+                                                } catch (e) {
+                                                  rethrow;
+                                                }
+                                              },
+                                              child: Image(
+                                                image: AssetImage(
+                                                  Assets.icons.save.path,
+                                                ),
+                                                height: 44.h,
+                                                width: 44.w,
+                                              ),
+                                            );
                                             }
-                                          },
-                                          child: Image(
-                                            image: AssetImage(
-                                              Assets.icons.save.path,
-                                            ),
-                                            height: 44.h,
-                                            width: 44.w,
-                                          ),
+                                            
+                                            
+                                          }
                                         ),
                                         !hasData
                                             ? const SizedBox.shrink()
@@ -336,8 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       pageNum: pageNum);
                                                 },
                                                 child: Image(
-                                                  image: AssetImage(Assets
-                                                      .icons.forward.path),
+                                                  image: AssetImage(Assets.icons.forward.path),
                                                   height: 44.h,
                                                   width: 44.w,
                                                 ),

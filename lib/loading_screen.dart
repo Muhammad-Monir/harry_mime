@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:harry_mine/features/home/presentation/home.dart';
 import 'package:harry_mine/features/onboarding/presentation/onboarding_screen.dart';
+import 'package:harry_mine/helpers/dao_access.dart';
 import 'package:harry_mine/networks/api_acess.dart';
 
 import 'constants/app_constants.dart';
@@ -30,7 +31,9 @@ class _LoadingState extends State<Loading> {
   loadInitialData() async {
     AutoAppUpdateUtil.instance.checkAppUpdate();
     await setInitValue();
+    await getBusinessRX.fetchCartData();
     await getCategotyObj.fetchCategoryData();
+
     // await getAllShopCategoryRXObj.fetchAllShopCategoryData();
     // await getAllShopRXObj.fetchAllShopData();
     // await getSliderRXObj.fetchSliderData();
