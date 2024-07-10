@@ -14,11 +14,14 @@ class TextFontStyle {
   static final headline16cDFE1E6Poppins300 = GoogleFonts.poppins(
       color: AppColors.cDFE1E6, fontSize: 16.sp, fontWeight: FontWeight.w300);
   static final button16primaryPoppins600 = GoogleFonts.poppins(
-      color: AppColors.allPrimaryColor, fontSize: 16.sp, fontWeight: FontWeight.w600);
+      color: AppColors.allPrimaryColor,
+      fontSize: 16.sp,
+      fontWeight: FontWeight.w600);
   static final title14cFFFFFFPoppins400 = GoogleFonts.poppins(
       color: AppColors.cFFFFFF, fontSize: 14.sp, fontWeight: FontWeight.w400);
   static final title14cA5ADBAPoppins400 = GoogleFonts.poppins(
       color: AppColors.cA5ADBA, fontSize: 14.sp, fontWeight: FontWeight.w400);
+  //testing
 
   //old
 }
