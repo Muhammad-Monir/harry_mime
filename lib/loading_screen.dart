@@ -17,13 +17,12 @@ class _LoadingState extends State<Loading> {
   bool _isLoading = true;
 
   @override
-  void initState()async {
-   await loadInitialData();
+  void initState() {
+    loadInitialData();
     super.initState();
   }
 
   loadInitialData() async {
-    
     await setInitValue();
     await getBusinessRX.fetchCartData();
     await getCategotyObj.fetchCategoryData();
