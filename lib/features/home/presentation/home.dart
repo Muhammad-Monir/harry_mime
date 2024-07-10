@@ -249,7 +249,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           // IdeaModel ideaModel = snapshot.data;
                           BusinessModel businessModel = snapshot.data['data'];
                           bool hasData = snapshot.data['hasNext'];
-                          
 
                           return snapshot.data != null
                               ? Column(
@@ -297,56 +296,87 @@ class _HomeScreenState extends State<HomeScreen> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         StreamBuilder(
-                                          stream: getBusinessRX.getBusinessData,
-                                          builder: (context, snapshot) {
-                                            List<int> savedIdeasId = snapshot.data['savedId'];
-                                            if(savedIdeasId.contains(businessModel.uid) && snapshot.data !=null){
-                                              return Image(
-                                                image: AssetImage(
-                                                  Assets.icons.savedFillBig.path,
-                                                ),
-                                                height: 44.h,
-                                                width: 44.w,
-                                              );
-                                            } else {
-                                              return GestureDetector(
-                                              onTap: () async {
-                                                try {
-                                                  await DbUtil().saveData(
-                                                      TableConstant.kSaveTableName,
-                                                      BusinessModel(
-                                                        uid: businessModel.uid,
-                                                        categoryId: businessModel
-                                                            .categoryId,
-                                                        name: businessModel.name,
-                                                        capital:
-                                                            businessModel.capital,
-                                                        skills:
-                                                            businessModel.skills,
-                                                        necessaryPeople:
-                                                            businessModel
-                                                                .necessaryPeople,
-                                                      ).toJson());
-                                                      getBusinessRX.fetchCartData();
-                                                  ToastUtil.showShortToast(
-                                                      "Item Add Success");
-                                                } catch (e) {
-                                                  rethrow;
-                                                }
-                                              },
-                                              child: Image(
-                                                image: AssetImage(
-                                                  Assets.icons.save.path,
-                                                ),
-                                                height: 44.h,
-                                                width: 44.w,
-                                              ),
-                                            );
-                                            }
-                                            
-                                            
-                                          }
-                                        ),
+                                            stream:
+                                                getBusinessRX.getBusinessData,
+                                            builder: (context, snapshot) {
+                                              if(snapshot.data ==null) {
+                                                return SizedBox();
+                                              } else{
+                                                List<int> savedIdeasId =
+                                                  snapshot.data['savedId'];
+                                              if (savedIdeasId.contains(
+                                                      businessModel.uid) &&
+                                                  snapshot.data != null) {
+                                                return GestureDetector(
+                                                  onTap: () async {
+                                                    try {
+                                                      await DbUtil().deleteData(
+                                                          table: TableConstant
+                                                              .kSaveTableName,
+                                                          where: 'uid = ?',
+                                                          id: businessModel
+                                                              .uid);
+                                                      getBusinessRX
+                                                          .fetchCartData();
+                                                      ToastUtil.showShortToast(
+                                                          "Removed Successfully");
+                                                    } catch (e) {
+                                                      rethrow;
+                                                    }
+                                                  },
+                                                  child: Image(
+                                                    image: AssetImage(
+                                                      Assets.icons.savedFillBig
+                                                          .path,
+                                                    ),
+                                                    height: 44.h,
+                                                    width: 44.w,
+                                                  ),
+                                                );
+                                              } else {
+                                                return GestureDetector(
+                                                  onTap: () async {
+                                                    try {
+                                                      await DbUtil().saveData(
+                                                          TableConstant
+                                                              .kSaveTableName,
+                                                          BusinessModel(
+                                                            uid: businessModel
+                                                                .uid,
+                                                            categoryId:
+                                                                businessModel
+                                                                    .categoryId,
+                                                            name: businessModel
+                                                                .name,
+                                                            capital:
+                                                                businessModel
+                                                                    .capital,
+                                                            skills:
+                                                                businessModel
+                                                                    .skills,
+                                                            necessaryPeople:
+                                                                businessModel
+                                                                    .necessaryPeople,
+                                                          ).toJson());
+                                                      getBusinessRX
+                                                          .fetchCartData();
+                                                      ToastUtil.showShortToast(
+                                                          "Addded Successfully");
+                                                    } catch (e) {
+                                                      rethrow;
+                                                    }
+                                                  },
+                                                  child: Image(
+                                                    image: AssetImage(
+                                                      Assets.icons.save.path,
+                                                    ),
+                                                    height: 44.h,
+                                                    width: 44.w,
+                                                  ),
+                                                );
+                                              }
+                                              }
+                                            }),
                                         !hasData
                                             ? const SizedBox.shrink()
                                             : GestureDetector(
@@ -357,7 +387,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       pageNum: pageNum);
                                                 },
                                                 child: Image(
-                                                  image: AssetImage(Assets.icons.forward.path),
+                                                  image: AssetImage(Assets
+                                                      .icons.forward.path),
                                                   height: 44.h,
                                                   width: 44.w,
                                                 ),

@@ -39,14 +39,14 @@ class _LoadingState extends State<Loading> {
     // await getSliderRXObj.fetchSliderData();
     // await getAllSubCategoryRXObj.fetchGetAllSubCategoryData();
 
-    if (appData.read(kKeyIsLoggedIn)) {
-      String token = appData.read(kKeyAccessToken);
-      DioSingleton.instance.update(token);
-      // await getAllAddressRXObj.fetchAllDeliveryAddressData();
-      // getProfileRXObj.fetchProfileData();
-      // getCartRXObj.fetchCartData("0.0");
-      LocalNotificationService.getToken();
-    }
+    // if (appData.read(kKeyIsLoggedIn)) {
+    //   String token = appData.read(kKeyAccessToken);
+    //   DioSingleton.instance.update(token);
+    //   // await getAllAddressRXObj.fetchAllDeliveryAddressData();
+    //   // getProfileRXObj.fetchProfileData();
+    //   // getCartRXObj.fetchCartData("0.0");
+    //   LocalNotificationService.getToken();
+    // }
     setState(() {
       _isLoading = false;
     });

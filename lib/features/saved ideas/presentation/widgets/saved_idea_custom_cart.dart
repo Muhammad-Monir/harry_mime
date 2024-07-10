@@ -89,7 +89,7 @@ class SavedIdeaCustomCart extends StatelessWidget {
                           where: 'uid = ?',
                           id: id);
                       getBusinessRX.fetchCartData();
-                      ToastUtil.showShortToast("Item Delete Success");
+                      ToastUtil.showShortToast("Removed Successfully");
                     } catch (e) {
                       rethrow;
                     }
