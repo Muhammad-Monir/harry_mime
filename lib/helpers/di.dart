@@ -2,7 +2,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:harry_mine/helpers/db.dart';
+import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/services/dao_init.dart';
 import '/provider/provides.dart';
 

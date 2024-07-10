@@ -51,6 +51,10 @@ class $AssetsIconsGen {
   AssetGenImage get saveFill =>
       const AssetGenImage('assets/icons/save_fill.png');
 
+  /// File path: assets/icons/saved_fill_big.png
+  AssetGenImage get savedFillBig =>
+      const AssetGenImage('assets/icons/saved_fill_big.png');
+
   /// File path: assets/icons/services.png
   AssetGenImage get services =>
       const AssetGenImage('assets/icons/services.png');
@@ -79,6 +83,7 @@ class $AssetsIconsGen {
         random,
         save,
         saveFill,
+        savedFillBig,
         services,
         skills,
         technology,

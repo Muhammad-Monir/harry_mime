@@ -7,6 +7,7 @@ import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 import '../../../helpers/dao_access.dart';
+import '../../../networks/api_acess.dart';
 
 class SavedIdeasScreen extends StatefulWidget {
   const SavedIdeasScreen({super.key});
@@ -69,32 +70,27 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                     itemCount: dataList.length,
                     itemBuilder: (context, index) {
                       BusinessModel dataModel = dataList[index];
-                      return SavedIdeaCustomCart(
-                        id: dataModel.uid,
-                        name: dataModel.name,
-                        capital: dataModel.capital,
-                        skills: dataModel.skills,
-                        employee: dataModel.necessaryPeople,
+                      return GestureDetector(
+                        onTap: () async {
+                          Map<String, dynamic> mapedData = {
+                            'hasNext': false,
+                            'data': dataModel
+                          };
+                          getIdeaRXObj.addOfflineData(mapedData);
+                          Navigator.pop(context);
+                        },
+                        child: SavedIdeaCustomCart(
+                          id: dataModel.uid,
+                          name: dataModel.name,
+                          capital: dataModel.capital,
+                          skills: dataModel.skills,
+                          employee: dataModel.necessaryPeople,
+                        ),
                       );
                     });
               }
             }
           }),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () async {
-      //     await DbUtil().saveData(TableConstant.kSaveTableName, BusinessModel(
-      //       uid: 1,
-      //       categoryId: "1",
-      //       name: "Technology",
-      //       capital: "1000000",
-      //       skills: "Flutter, Dart, C++, Java",
-      //       necessaryPeople: "2-50"
-      //       ).toJson()
-      //       );
-      //       getBusinessRX.fetchCartData();
-      //   },
-      //   child: Icon(Icons.add),
-      //   ),
     );
   }
 }
