@@ -3,29 +3,17 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'package:get/get.dart';
-
-
-
-
-
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
-import '../gen/colors.gen.dart';
 import '/helpers/di.dart';
 import '/helpers/toast.dart';
-
 import '../constants/app_constants.dart';
-
-import '../constants/text_font_style.dart';
 import '../provider/provides.dart';
-import '../common_widgets/custom_button.dart';
 
 //final appData = locator.get<GetStorage>();
 final plcaeMarkAddress = locator.get<PlcaeMarkAddress>();
