@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/common_widgets/loading_indicators.dart';
 import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/features/home/model/category_model.dart';
@@ -138,84 +139,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             );
-                            // Container(
-                            //   child: Wrap(
-                            //     alignment: WrapAlignment.center,
-                            //     runSpacing: 8.h,
-                            //     spacing: 8.w,
-                            //     children: [
-                            //       BusinessCategoryWidget(
-                            //         name: 'Technology',
-                            //         imagePath: Assets.icons.technology.path,
-                            //         onTap: () {
-                            //           currentId = 1;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Finance',
-                            //         imagePath: Assets.icons.finance.path,
-                            //         onTap: () {
-                            //           currentId = 2;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Health',
-                            //         imagePath: Assets.icons.health.path,
-                            //         onTap: () {
-                            //           currentId = 3;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Services',
-                            //         imagePath: Assets.icons.services.path,
-                            //         onTap: () {
-                            //           currentId = 4;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Random',
-                            //         imagePath: Assets.icons.random.path,
-                            //       ),
-                            //     ],
-                            //   ),
-                            // );
                           } else {
                             return SizedBox(
-                              child: GridView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: 5,
-                                  shrinkWrap: true,
-                                  gridDelegate:
-                                      SliverGridDelegateWithMaxCrossAxisExtent(
-                                    mainAxisExtent: 48.h,
-                                    maxCrossAxisExtent:
-                                        170.w, // Maximum width of each item
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 10.0,
-                                    childAspectRatio: 1.0,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    return BusinessCategoryWidget(
-                                        name: 'Name',
-                                        imagePath:
-                                            Assets.icons.technology.path);
-                                  }),
+                              child: shimmer(
+                                  context: context,
+                                  name: Assets.lottie.loadingSpinner,
+                                  size: 120.sp),
                             );
                           }
                         }),
                   ),
+                  // SizedBox(
+                  //   child: shimmer(
+                  //       context: context,
+                  //       name: Assets.lottie.loadingSpinner,
+                  //       size: 120.sp),
+                  // ),
                   UIHelper.verticalSpace(24.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
