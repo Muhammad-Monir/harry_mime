@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:harry_mine/common_widgets/loading_indicators.dart';
 import 'package:harry_mine/constants/table_constants.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/features/home/model/category_model.dart';
-import 'package:harry_mine/features/home/model/idea_model.dart';
 import 'package:harry_mine/features/home/presentation/widgets/business_idea.dart';
 import 'package:harry_mine/features/saved%20ideas/model/business_model.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // UIHelper.verticalSpace(10.h),
+                  UIHelper.verticalSpace(10.h),
                   Align(
                     alignment: Alignment.center,
                     child: SizedBox(
@@ -139,85 +139,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             );
-                            // Container(
-                            //   child: Wrap(
-                            //     alignment: WrapAlignment.center,
-                            //     runSpacing: 8.h,
-                            //     spacing: 8.w,
-                            //     children: [
-                            //       BusinessCategoryWidget(
-                            //         name: 'Technology',
-                            //         imagePath: Assets.icons.technology.path,
-                            //         onTap: () {
-                            //           currentId = 1;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Finance',
-                            //         imagePath: Assets.icons.finance.path,
-                            //         onTap: () {
-                            //           currentId = 2;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Health',
-                            //         imagePath: Assets.icons.health.path,
-                            //         onTap: () {
-                            //           currentId = 3;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Services',
-                            //         imagePath: Assets.icons.services.path,
-                            //         onTap: () {
-                            //           currentId = 4;
-                            //           pageNum = 1;
-                            //           getIdeaRXObj.fetchIdeaData(currentId,
-                            //               pageNum: pageNum);
-                            //         },
-                            //       ),
-                            //       BusinessCategoryWidget(
-                            //         name: 'Random',
-                            //         imagePath: Assets.icons.random.path,
-                            //       ),
-                            //     ],
-                            //   ),
-                            // );
                           } else {
                             return SizedBox(
-                              child: GridView.builder(
-                                  physics: BouncingScrollPhysics(),
-                                  itemCount: 5,
-                                  shrinkWrap: true,
-                                  gridDelegate:
-                                      SliverGridDelegateWithMaxCrossAxisExtent(
-                                    mainAxisExtent: 48.h,
-                                    maxCrossAxisExtent:
-                                        170.w, // Maximum width of each item
-                                    crossAxisSpacing: 10.0,
-                                    mainAxisSpacing: 10.0,
-                                    childAspectRatio: 1.0,
-                                  ),
-                                  itemBuilder: (context, index) {
-                                    return BusinessCategoryWidget(
-                                        name: 'Name',
-                                        imagePath:
-                                            Assets.icons.technology.path);
-                                  }),
+                              child: shimmer(
+                                  context: context,
+                                  name: Assets.lottie.loadingSpinner,
+                                  size: 120.sp),
                             );
                           }
                         }),
                   ),
-                  UIHelper.verticalSpace(24.h),
+                  // SizedBox(
+                  //   child: shimmer(
+                  //       context: context,
+                  //       name: Assets.lottie.loadingSpinner,
+                  //       size: 120.sp),
+                  // ),
+                  UIHelper.verticalSpace(30.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -240,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ],
                   ),
-                  UIHelper.verticalSpace(12.h),
+                  UIHelper.verticalSpace(14.h),
                   StreamBuilder(
                       stream: getIdeaRXObj.getIdeaData,
                       builder: (context, snapshot) {
@@ -299,92 +237,99 @@ class _HomeScreenState extends State<HomeScreen> {
                                             stream:
                                                 getBusinessRX.getBusinessData,
                                             builder: (context, snapshot) {
-                                              if(snapshot.data ==null) {
+                                              if (snapshot.data == null) {
                                                 return SizedBox();
-                                              } else{
-                                                List<int> savedIdeasId =
-                                                  snapshot.data['savedId'];
-                                              if (savedIdeasId.contains(
-                                                      businessModel.uid) &&
-                                                  snapshot.data != null) {
-                                                return GestureDetector(
-                                                  onTap: () async {
-                                                    try {
-                                                      await DbUtil().deleteData(
-                                                          table: TableConstant
-                                                              .kSaveTableName,
-                                                          where: 'uid = ?',
-                                                          id: businessModel
-                                                              .uid);
-                                                      getBusinessRX
-                                                          .fetchCartData();
-                                                      ToastUtil.showShortToast(
-                                                          "Removed Successfully");
-                                                    } catch (e) {
-                                                      rethrow;
-                                                    }
-                                                  },
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      Assets.icons.savedFillBig
-                                                          .path,
-                                                    ),
-                                                    height: 44.h,
-                                                    width: 44.w,
-                                                  ),
-                                                );
                                               } else {
-                                                return GestureDetector(
-                                                  onTap: () async {
-                                                    try {
-                                                      await DbUtil().saveData(
-                                                          TableConstant
-                                                              .kSaveTableName,
-                                                          BusinessModel(
-                                                            uid: businessModel
-                                                                .uid,
-                                                            categoryId:
-                                                                businessModel
-                                                                    .categoryId,
-                                                            name: businessModel
-                                                                .name,
-                                                            capital:
-                                                                businessModel
-                                                                    .capital,
-                                                            skills:
-                                                                businessModel
-                                                                    .skills,
-                                                            necessaryPeople:
-                                                                businessModel
-                                                                    .necessaryPeople,
-                                                          ).toJson());
-                                                      getBusinessRX
-                                                          .fetchCartData();
-                                                      ToastUtil.showShortToast(
-                                                          "Addded Successfully");
-                                                    } catch (e) {
-                                                      rethrow;
-                                                    }
-                                                  },
-                                                  child: Image(
-                                                    image: AssetImage(
-                                                      Assets.icons.save.path,
+                                                List<int> savedIdeasId =
+                                                    snapshot.data['savedId'];
+                                                if (savedIdeasId.contains(
+                                                        businessModel.uid) &&
+                                                    snapshot.data != null) {
+                                                  return GestureDetector(
+                                                    onTap: () async {
+                                                      try {
+                                                        await DbUtil().deleteData(
+                                                            table: TableConstant
+                                                                .kSaveTableName,
+                                                            where: 'uid = ?',
+                                                            id: businessModel
+                                                                .uid);
+                                                        getBusinessRX
+                                                            .fetchCartData();
+                                                        ToastUtil.showShortToast(
+                                                            "Removed Successfully");
+                                                      } catch (e) {
+                                                        rethrow;
+                                                      }
+                                                    },
+                                                    child: Image(
+                                                      image: AssetImage(
+                                                        Assets.icons
+                                                            .savedFillBig.path,
+                                                      ),
+                                                      height: 44.h,
+                                                      width: 44.w,
                                                     ),
-                                                    height: 44.h,
-                                                    width: 44.w,
-                                                  ),
-                                                );
-                                              }
+                                                  );
+                                                } else {
+                                                  return GestureDetector(
+                                                    onTap: () async {
+                                                      try {
+                                                        await DbUtil().saveData(
+                                                            TableConstant
+                                                                .kSaveTableName,
+                                                            BusinessModel(
+                                                              uid: businessModel
+                                                                  .uid,
+                                                              categoryId:
+                                                                  businessModel
+                                                                      .categoryId,
+                                                              name:
+                                                                  businessModel
+                                                                      .name,
+                                                              capital:
+                                                                  businessModel
+                                                                      .capital,
+                                                              skills:
+                                                                  businessModel
+                                                                      .skills,
+                                                              necessaryPeople:
+                                                                  businessModel
+                                                                      .necessaryPeople,
+                                                            ).toJson());
+                                                        getBusinessRX
+                                                            .fetchCartData();
+                                                        ToastUtil.showShortToast(
+                                                            "Addded Successfully");
+                                                      } catch (e) {
+                                                        rethrow;
+                                                      }
+                                                    },
+                                                    child: Image(
+                                                      image: AssetImage(
+                                                        Assets.icons.save.path,
+                                                      ),
+                                                      height: 44.h,
+                                                      width: 44.w,
+                                                    ),
+                                                  );
+                                                }
                                               }
                                             }),
-                                        !hasData
+                                        !hasData &&
+                                                businessModel.categoryId != "5"
                                             ? const SizedBox.shrink()
                                             : GestureDetector(
                                                 onTap: () {
                                                   pageNum++;
-                                                  getIdeaRXObj.fetchIdeaData(
-                                                      currentId,
-                                                      pageNum: pageNum);
+                                                  if (currentId != 5) {
+                                                    getIdeaRXObj.fetchIdeaData(
+                                                        currentId,
+                                                        pageNum: pageNum);
+                                                  } else {
+                                                    getIdeaRXObj.fetchIdeaData(
+                                                        currentId);
+                                                  }
                                                 },
                                                 child: Image(
                                                   image: AssetImage(Assets

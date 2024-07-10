@@ -6,7 +6,6 @@ import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_ide
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
-
 import '../../../helpers/dao_access.dart';
 import '../../../networks/api_acess.dart';
 
@@ -79,7 +78,6 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                           };
                           getIdeaRXObj.addOfflineData(mapedData);
                           Navigator.pop(context);
-
                         },
                         child: SavedIdeaCustomCart(
                           id: dataModel.uid,
