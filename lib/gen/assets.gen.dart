@@ -9,6 +9,19 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Poppins-Regular.ttf
+  String get poppinsRegular => 'assets/fonts/Poppins-Regular.ttf';
+
+  /// File path: assets/fonts/Roboto-Regular.ttf
+  String get robotoRegular => 'assets/fonts/Roboto-Regular.ttf';
+
+  /// List of all assets
+  List<String> get values => [poppinsRegular, robotoRegular];
+}
+
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
@@ -203,6 +216,7 @@ class $AssetsLottieGen {
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLottieGen lottie = $AssetsLottieGen();

@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         child: PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-            showMaterialDialog(context);
+        //    showMaterialDialog(context);
           },
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -69,7 +69,7 @@ class UtillScreenMobile extends StatelessWidget {
         return PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-            showMaterialDialog(context);
+          //  showMaterialDialog(context);
           },
           child: GetMaterialApp(
             //showPerformanceOverlay: true,

@@ -316,8 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 }
                                               }
                                             }),
-                                        !hasData &&
-                                                businessModel.categoryId != "5"
+                                         !hasData &&businessModel.categoryId == "5"
                                             ? const SizedBox.shrink()
                                             : GestureDetector(
                                                 onTap: () {

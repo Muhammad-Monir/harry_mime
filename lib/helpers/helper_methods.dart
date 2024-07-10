@@ -10,9 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+
 
 import 'package:http/http.dart' as http;
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -205,53 +205,53 @@ Future<File> getLocalFile(String filename) async {
   return f;
 }
 
-void showMaterialDialog(
-  BuildContext context,
-) {
-  showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-            title: Text(
-              "Do you want to exit the app?",
-              textAlign: TextAlign.center,
-              style: TextFontStyle.headline16cDFE1E6Poppins300,
-            ),
-            actions: <Widget>[
-              customeButton(
-                  name: "No".tr,
-                  onCallBack: () {
-                    Navigator.of(context).pop(false);
-                  },
-                  height: 30.sp,
-                  minWidth: .3.sw,
-                  borderRadius: 30.r,
-                  color: AppColors.cF4F4F4,
-                  textStyle: GoogleFonts.montserrat(
-                      fontSize: 17.sp,
-                      color: AppColors.allPrimaryColor,
-                      fontWeight: FontWeight.w700),
-                  context: context),
-              customeButton(
-                  name: "Yes".tr,
-                  onCallBack: () {
-                    if (Platform.isAndroid) {
-                      SystemNavigator.pop();
-                    } else if (Platform.isIOS) {
-                      exit(0);
-                    }
-                  },
-                  height: 30.sp,
-                  minWidth: .3.sw,
-                  borderRadius: 30.r,
-                  color: AppColors.allPrimaryColor,
-                  textStyle: GoogleFonts.montserrat(
-                      fontSize: 17.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w700),
-                  context: context),
-            ],
-          ));
-}
+// void showMaterialDialog(
+//   BuildContext context,
+// ) {
+//   showDialog<bool>(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//             title: Text(
+//               "Do you want to exit the app?",
+//               textAlign: TextAlign.center,
+//               style: TextFontStyle.headline16cDFE1E6Poppins300,
+//             ),
+//             actions: <Widget>[
+//               customeButton(
+//                   name: "No".tr,
+//                   onCallBack: () {
+//                     Navigator.of(context).pop(false);
+//                   },
+//                   height: 30.sp,
+//                   minWidth: .3.sw,
+//                   borderRadius: 30.r,
+//                   color: AppColors.cF4F4F4,
+//                   textStyle: GoogleFonts.montserrat(
+//                       fontSize: 17.sp,
+//                       color: AppColors.allPrimaryColor,
+//                       fontWeight: FontWeight.w700),
+//                   context: context),
+//               customeButton(
+//                   name: "Yes".tr,
+//                   onCallBack: () {
+//                     if (Platform.isAndroid) {
+//                       SystemNavigator.pop();
+//                     } else if (Platform.isIOS) {
+//                       exit(0);
+//                     }
+//                   },
+//                   height: 30.sp,
+//                   minWidth: .3.sw,
+//                   borderRadius: 30.r,
+//                   color: AppColors.allPrimaryColor,
+//                   textStyle: GoogleFonts.montserrat(
+//                       fontSize: 17.sp,
+//                       color: Colors.white,
+//                       fontWeight: FontWeight.w700),
+//                   context: context),
+//             ],
+//           ));
+// }
 
 void rotation() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
