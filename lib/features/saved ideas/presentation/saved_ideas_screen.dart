@@ -6,6 +6,7 @@ import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_ide
 import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
+import 'package:harry_mine/networks/endpoints.dart';
 import '../../../helpers/dao_access.dart';
 import '../../../networks/api_acess.dart';
 
@@ -85,6 +86,7 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                           capital: dataModel.capital,
                           skills: dataModel.skills,
                           employee: dataModel.necessaryPeople,
+                          imagePath: url + dataModel.imagePath,
                         ),
                       );
                     });

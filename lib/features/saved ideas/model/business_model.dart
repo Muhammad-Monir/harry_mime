@@ -18,7 +18,7 @@
 //   });
 
 //   BusinessModel.empty();
-  
+
 //   BusinessModel copyWith({
 //     int? id,
 //     int? categoryId,
@@ -87,7 +87,7 @@
 //   });
 
 //   BusinessModel.empty();
-  
+
 //   BusinessModel copyWith({
 //     int? iid,
 //     int? categoryId,
@@ -136,7 +136,6 @@
 //   }
 // }
 
-
 import 'dart:convert';
 
 class BusinessModel {
@@ -146,18 +145,19 @@ class BusinessModel {
   late String capital;
   late String skills;
   late String necessaryPeople;
+  late String imagePath;
 
-  BusinessModel({
-    required this.uid,
-    required this.categoryId,
-    required this.name,
-    required this.capital,
-    required this.skills,
-    required this.necessaryPeople,
-  });
+  BusinessModel(
+      {required this.uid,
+      required this.categoryId,
+      required this.name,
+      required this.capital,
+      required this.skills,
+      required this.necessaryPeople,
+      required this.imagePath});
 
   BusinessModel.empty();
-  
+
   BusinessModel copyWith({
     int? uid,
     String? categoryId,
@@ -165,6 +165,7 @@ class BusinessModel {
     String? capital,
     String? skills,
     String? necessaryPeople,
+    String? imagePath,
   }) =>
       BusinessModel(
         uid: uid ?? this.uid,
@@ -173,9 +174,11 @@ class BusinessModel {
         capital: capital ?? this.capital,
         skills: skills ?? this.skills,
         necessaryPeople: necessaryPeople ?? this.necessaryPeople,
+        imagePath: imagePath ?? this.imagePath,
       );
 
-  factory BusinessModel.fromRawJson(String str) => BusinessModel.fromJson(json.decode(str));
+  factory BusinessModel.fromRawJson(String str) =>
+      BusinessModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
@@ -183,9 +186,10 @@ class BusinessModel {
         uid: int.parse(json["uid"].toString()),
         categoryId: json["category_id"],
         name: json["name"],
-        capital:json["capital"],
+        capital: json["capital"],
         skills: json["skills"],
         necessaryPeople: json["necessary_people"],
+        imagePath: json['image'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -195,6 +199,7 @@ class BusinessModel {
         "capital": capital,
         "skills": skills,
         "necessary_people": necessaryPeople,
+        "image": imagePath,
       };
 
   static List<BusinessModel> fromList(List<dynamic> list) {

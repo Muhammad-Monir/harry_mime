@@ -5,7 +5,6 @@
 import 'dart:convert';
 
 IdeaModel ideaModelFromJson(String str) => IdeaModel.fromJson(json.decode(str));
-
 String ideaModelToJson(IdeaModel data) => json.encode(data.toJson());
 
 class IdeaModel {
@@ -133,6 +132,7 @@ class Datum {
   String? necessaryPeople;
   DateTime? createdAt;
   DateTime? updatedAt;
+  String? imagePath;
 
   Datum({
     this.id,
@@ -143,15 +143,17 @@ class Datum {
     this.necessaryPeople,
     this.createdAt,
     this.updatedAt,
+    this.imagePath,
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
         id: json["id"],
-        categoryId: json["category_id"],
+        categoryId: json["category_id"] ?? "5",
         name: json["name"],
         capital: json["capital"],
         skills: json["skills"],
         necessaryPeople: json["necessary_people"],
+        imagePath: json['image'] ?? "/images/random.png",
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
       );
@@ -163,6 +165,7 @@ class Datum {
         "capital": capital,
         "skills": skills,
         "necessary_people": necessaryPeople,
+        'image': imagePath,
         "created_at": createdAt?.toIso8601String(),
         "updated_at": updatedAt?.toIso8601String(),
       };

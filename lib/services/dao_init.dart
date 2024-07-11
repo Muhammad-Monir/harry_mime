@@ -35,14 +35,15 @@ final class DbSingleton {
        ${TableConstant.kname} TEXT,
        ${TableConstant.kcapital} TEXT,
        ${TableConstant.kSkills} TEXT,
-       ${TableConstant.kNecessaryPeople} TEXT
+       ${TableConstant.kNecessaryPeople} TEXT,
+       ${TableConstant.kImagePath} TEXT
        )
        ''');
     // batch.execute('''
     //    create TABLE  ${TableConst.kPostsTableName}
     //    (
     //     ${TableConst.kId} TEXT PRIMARY KEY,
-    //     ${TableConst.kUrl} TEXT, 
+    //     ${TableConst.kUrl} TEXT,
     //     ${TableConst.kTitle} TEXT,
     //     ${TableConst.kContent} TEXT,
     //     ${TableConst.kImage} TEXT,
