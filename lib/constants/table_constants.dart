@@ -1,7 +1,6 @@
 final class TableConstant {
   //table name
   static const kSaveTableName = 'savedIdeas';
-
   //fields
   static const kId = 'uid';
   static const kCategoryId = 'category_id';
@@ -9,5 +8,5 @@ final class TableConstant {
   static const kcapital = 'capital';
   static const kSkills = 'skills';
   static const kNecessaryPeople = 'necessary_people';
+  static const kImagePath = 'image';
 }
-

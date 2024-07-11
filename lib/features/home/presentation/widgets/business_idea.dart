@@ -24,16 +24,21 @@ class BusinessIdeaDeatilsWidget extends StatelessWidget {
               color: AppColors.allPrimaryColor,
               borderRadius: BorderRadius.circular(10.r)),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Image(
                 image: AssetImage(imagePath),
                 height: 32,
               ),
               UIHelper.horizontalSpace(14.w),
-              Text(
-                name,
-                style: TextFontStyle.headline16cDFE1E6Poppins300
-                    .copyWith(fontSize: 14.sp, color: custColor),
+              Flexible(
+                child: Text(
+                  name,
+                  style: TextFontStyle.headline16cDFE1E6Poppins300
+                      .copyWith(fontSize: 14.sp, color: custColor),
+                  softWrap: true,
+                  overflow: TextOverflow.visible,
+                ),
               )
             ],
           ),

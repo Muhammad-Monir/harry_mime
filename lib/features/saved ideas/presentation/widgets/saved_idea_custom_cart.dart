@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/features/saved%20ideas/presentation/widgets/saved_idea_cart_title_widget.dart';
@@ -5,6 +6,7 @@ import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/helpers/dao_access.dart';
 import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/helpers/toast.dart';
+import 'package:harry_mine/networks/endpoints.dart';
 
 import '../../../../constants/table_constants.dart';
 import '../../../../gen/colors.gen.dart';
@@ -12,7 +14,7 @@ import '../../../../helpers/ui_helpers.dart';
 
 class SavedIdeaCustomCart extends StatelessWidget {
   final int id;
-  final String name, capital, skills, employee;
+  final String name, capital, skills, employee, imagePath;
   const SavedIdeaCustomCart({
     super.key,
     required this.id,
@@ -20,6 +22,7 @@ class SavedIdeaCustomCart extends StatelessWidget {
     required this.capital,
     required this.skills,
     required this.employee,
+    required this.imagePath,
   });
 
   @override
@@ -45,11 +48,19 @@ class SavedIdeaCustomCart extends StatelessWidget {
                   Container(
                     height: 91.h,
                     width: 74.w,
-                    padding: EdgeInsets.all(15.sp),
+                    padding: EdgeInsets.all(5.sp),
                     decoration: BoxDecoration(
                         color: AppColors.containerColor,
                         borderRadius: BorderRadius.circular(5.r)),
-                    child: Image.asset(Assets.icons.logo.path),
+                    child: CachedNetworkImage(
+                      // height: 70.h,
+                      // width: 70.w,
+                      imageUrl: imagePath,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
+                    ),
                   ),
                   UIHelper.horizontalSpaceSmall,
                   Expanded(

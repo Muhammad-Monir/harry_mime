@@ -23,12 +23,14 @@ final class GetIdeaRx extends RxResponseInt<Map> {
       IdeaModel ideaModel = IdeaModel.fromJson(ideaData);
       var businessList = ideaModel.data!.business!.data;
       BusinessModel data = BusinessModel(
-          uid: businessList!.first.id!,
-          categoryId: businessList.first.categoryId!,
-          name: businessList.first.name!,
-          capital: businessList.first.capital!,
-          skills: businessList.first.skills!,
-          necessaryPeople: businessList.first.necessaryPeople!);
+        uid: businessList!.first.id!,
+        categoryId: businessList.first.categoryId!,
+        name: businessList.first.name!,
+        capital: businessList.first.capital!,
+        skills: businessList.first.skills!,
+        necessaryPeople: businessList.first.necessaryPeople!,
+        imagePath: businessList.first.imagePath!,
+      );
       Map<String, dynamic> mapedData = {
         'hasNext': ideaModel.data!.business!.nextPageUrl == null ? false : true,
         'data': data

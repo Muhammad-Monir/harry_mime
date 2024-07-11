@@ -75,6 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           .copyWith(fontSize: 20.sp),
                     ),
                     UIHelper.verticalSpace(14.h),
+
+                    //category area
                     Container(
                       child: StreamBuilder(
                           stream: getCategotyObj.getCategoryData,
@@ -302,27 +304,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       return GestureDetector(
                                                         onTap: () async {
                                                           try {
-                                                            await DbUtil()
-                                                                .saveData(
-                                                                    TableConstant
-                                                                        .kSaveTableName,
-                                                                    BusinessModel(
-                                                                      uid: businessModel
-                                                                          .uid,
-                                                                      categoryId:
-                                                                          businessModel
-                                                                              .categoryId,
-                                                                      name: businessModel
-                                                                          .name,
-                                                                      capital:
-                                                                          businessModel
-                                                                              .capital,
-                                                                      skills: businessModel
-                                                                          .skills,
-                                                                      necessaryPeople:
-                                                                          businessModel
-                                                                              .necessaryPeople,
-                                                                    ).toJson());
+                                                            await DbUtil().saveData(
+                                                                TableConstant
+                                                                    .kSaveTableName,
+                                                                BusinessModel(
+                                                                        uid: businessModel
+                                                                            .uid,
+                                                                        categoryId:
+                                                                            businessModel
+                                                                                .categoryId,
+                                                                        name: businessModel
+                                                                            .name,
+                                                                        capital:
+                                                                            businessModel
+                                                                                .capital,
+                                                                        skills: businessModel
+                                                                            .skills,
+                                                                        necessaryPeople:
+                                                                            businessModel
+                                                                                .necessaryPeople,
+                                                                        imagePath:
+                                                                            businessModel.imagePath)
+                                                                    .toJson());
                                                             getBusinessRX
                                                                 .fetchCartData();
                                                             ToastUtil

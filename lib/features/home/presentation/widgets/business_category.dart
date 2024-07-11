@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import '../../../../constants/text_font_style.dart';
 import '../../../../helpers/ui_helpers.dart';
 
@@ -36,28 +36,36 @@ class BusinessCategoryWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.network(
+            CachedNetworkImage(
+              imageUrl: imagePath,
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
               height: 32.h,
               width: 32.w,
-              imagePath,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) {
-                  return child;
-                } else {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded /
-                              (loadingProgress.expectedTotalBytes ?? 1)
-                          : null,
-                    ),
-                  );
-                }
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return Icon(Icons.error);
-              },
             ),
+
+            // Image.network(
+            //   height: 32.h,
+            //   width: 32.w,
+            //   imagePath,
+            //   loadingBuilder: (context, child, loadingProgress) {
+            //     if (loadingProgress == null) {
+            //       return child;
+            //     } else {
+            //       return Center(
+            //         child: CircularProgressIndicator(
+            //           value: loadingProgress.expectedTotalBytes != null
+            //               ? loadingProgress.cumulativeBytesLoaded /
+            //                   (loadingProgress.expectedTotalBytes ?? 1)
+            //               : null,
+            //         ),
+            //       );
+            //     }
+            //   },
+            //   errorBuilder: (context, error, stackTrace) {
+            //     return Icon(Icons.error);
+            //   },
+            // ),
             // Image(
             //   image: NetworkImage(imagePath),
             //   height: 32.h,
