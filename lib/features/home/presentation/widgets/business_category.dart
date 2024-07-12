@@ -38,8 +38,8 @@ class BusinessCategoryWidget extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: imagePath,
-              placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
+              placeholder: (context, url) => const CircularProgressIndicator(),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
               height: 32.h,
               width: 32.w,
             ),

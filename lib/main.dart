@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:provider/provider.dart';
 import '/helpers/all_routes.dart';
 import 'constants/custome_theme.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         child: PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-        //    showMaterialDialog(context);
+            //    showMaterialDialog(context);
           },
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -68,14 +69,15 @@ class UtillScreenMobile extends StatelessWidget {
         return PopScope(
           canPop: false,
           onPopInvoked: (bool didPop) async {
-          //  showMaterialDialog(context);
+            //  showMaterialDialog(context);
           },
           child: GetMaterialApp(
             //showPerformanceOverlay: true,
             theme: ThemeData(
-              primarySwatch: CustomTheme.kToDark,
-              useMaterial3: false,
-            ),
+                primarySwatch: CustomTheme.kToDark,
+                useMaterial3: false,
+                scaffoldBackgroundColor: AppColors.allPrimaryColor),
+
             debugShowCheckedModeBanner: false,
             // translations: LocalString(),
             // locale: Locale(language, countryCode),

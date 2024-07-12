@@ -6,8 +6,6 @@ import 'package:harry_mine/gen/assets.gen.dart';
 import 'package:harry_mine/helpers/dao_access.dart';
 import 'package:harry_mine/helpers/db_util.dart';
 import 'package:harry_mine/helpers/toast.dart';
-import 'package:harry_mine/networks/endpoints.dart';
-
 import '../../../../constants/table_constants.dart';
 import '../../../../gen/colors.gen.dart';
 import '../../../../helpers/ui_helpers.dart';

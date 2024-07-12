@@ -20,14 +20,18 @@ final class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             UIHelper.verticalSpace(150.h),
-            Image.asset(Assets.icons.logo.path, height: 100.h, width: 100.w,),
+            Image.asset(
+              Assets.icons.logo.path,
+              height: 100.h,
+              width: 100.w,
+            ),
             UIHelper.verticalSpaceSmall,
             SizedBox(
-                                child: shimmer(
-                                    context: context,
-                                    name: Assets.lottie.loadingSpinner,
-                                    size: 120.sp),
-                              )
+              child: shimmer(
+                  context: context,
+                  name: Assets.lottie.loadingSpinner,
+                  size: 120.sp),
+            )
           ],
         ),
       ),

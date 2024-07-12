@@ -13,6 +13,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: AppColors.allPrimaryColor,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -20,8 +21,7 @@ class OnboardingScreen extends StatelessWidget {
                 fit: BoxFit.cover)),
         child: Center(
           child: Padding(
-            padding:
-                EdgeInsets.all( UIHelper.kDefaulutPadding()),
+            padding: EdgeInsets.all(UIHelper.kDefaulutPadding()),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,9 +57,8 @@ class OnboardingScreen extends StatelessWidget {
                   context: context,
                   gradient: const LinearGradient(
                     colors: [
-                     Color(0xFFB7CEEE),
-                     Color(0xFF4C6794),
-                     
+                      Color(0xFFB7CEEE),
+                      Color(0xFF4C6794),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
