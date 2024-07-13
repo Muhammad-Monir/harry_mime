@@ -1,7 +1,4 @@
 import 'package:provider/provider.dart';
-
-import '../provider/email.dart';
-
 import '../provider/provides.dart';
 
 var providers = [

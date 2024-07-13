@@ -22,95 +22,6 @@ final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 final GlobalKey<PopupMenuButtonState<String>> popUpGlobalkey =
     GlobalKey<PopupMenuButtonState<String>>();
 
-// enum StatusType { order, delivery }
-
-// Color statuscolor(StatusType status, String statusCode) {
-//   late Color stcolor;
-//   if (StatusType.order == status) {
-//     switch (statusCode) {
-//       case OrderStatusNo.kPENDING:
-//         stcolor = OrderStatusColor.kPENDING;
-//         break;
-//       case OrderStatusNo.kACCEPTED:
-//         stcolor = OrderStatusColor.kACCEPTED;
-//         break;
-//       case OrderStatusNo.kFOODPROCESSING:
-//         stcolor = OrderStatusColor.kFOODPROCESSING;
-//         break;
-//       case OrderStatusNo.kFOODREADY:
-//         stcolor = OrderStatusColor.kFOODREADY;
-//         break;
-//       case OrderStatusNo.kFOODPICKED:
-//         stcolor = OrderStatusColor.kFOODPICKED;
-//         break;
-//       case OrderStatusNo.kFOODDELIVERED:
-//         stcolor = OrderStatusColor.kFOODDELIVERED;
-//         break;
-//       case OrderStatusNo.kCANCELLED:
-//         stcolor = OrderStatusColor.kCANCELLED;
-//         break;
-//       case OrderStatusNo.kREJECTEDBYSHOP:
-//         stcolor = OrderStatusColor.kREJECTEDBYSHOP;
-//         break;
-//       case OrderStatusNo.kFAILED:
-//         stcolor = OrderStatusColor.kFAILED;
-//         break;
-//     }
-//   }
-//   if (StatusType.delivery == status) {
-//     switch (statusCode) {
-//       case DeliveryStatusNo.kPENDIG:
-//         stcolor = DeliveryStatusColor.kPENDING;
-//         break;
-//       case DeliveryStatusNo.kONTRANSIT:
-//         stcolor = DeliveryStatusColor.kONTRANSIT;
-//         break;
-//       case DeliveryStatusNo.kARRIVEDATSHOP:
-//         stcolor = DeliveryStatusColor.kARRIVEDATSHOP;
-//         break;
-//       case DeliveryStatusNo.kDELIVERYMANCONFIRMED:
-//         stcolor = DeliveryStatusColor.kDELIVERYMANCONFIRMED;
-//         break;
-//       case DeliveryStatusNo.kDELIVERYSTARTED:
-//         stcolor = DeliveryStatusColor.kDELIVERYSTARTED;
-//         break;
-//       case DeliveryStatusNo.kDELIVERED:
-//         stcolor = DeliveryStatusColor.kDELIVERED;
-//         break;
-//     }
-//   }
-
-//   return stcolor;
-// }
-
-// String language(String languageKey) {
-//   late String language;
-
-//   switch (languageKey) {
-//     case kKeyEnglish:
-//       language = "English";
-//       break;
-//     case kKeyFrench:
-//       language = "French";
-//       break;
-//     case kKeyGerman:
-//       language = "Dutch";
-//       break;
-//     case kKeyRussian:
-//       language = "Russian";
-//       break;
-//     case kKeyPortuguese:
-//       language = "Portuguese";
-//       break;
-//     case kKeySpanish:
-//       language = "Spanish";
-//       break;
-//     default:
-//       language = "Portuguese";
-//   }
-//   return language;
-// }
-
 Future<String?> networkImageToBase64(String imageUrl) async {
   http.Response response = await http.get(Uri.parse(imageUrl));
   final bytes = response.bodyBytes;
@@ -120,18 +31,6 @@ Future<String?> networkImageToBase64(String imageUrl) async {
 }
 
 Future<void> setInitValue() async {
-  // await appData.writeIfNull(kKeyIsLoggedIn, false);
-  // await appData.writeIfNull(kKeyIsExploring, false);
-  // appData.writeIfNull(kKeyLanguage, kKeyPortuguese);
-  // appData.writeIfNull(kKeyCountryCode, countriesCode[kKeyPortuguese]);
-  // appData.writeIfNull(kKeySelectedLocation, false);
-//lisbon
-  // appData.writeIfNull(kKeySelectedLat, 38.74631383626653);
-  // appData.writeIfNull(kKeySelectedLng, -9.130169921874991);
-//codemen
-  // await appData.writeIfNull(kKeySelectedLat, 22.818285677915657);
-  // await appData.writeIfNull(kKeySelectedLng, 89.5535583794117);
-
   var deviceInfo = DeviceInfoPlugin();
   if (Platform.isIOS) {
     var iosDeviceInfo = await deviceInfo.iosInfo;
@@ -144,22 +43,6 @@ Future<void> setInitValue() async {
   }
   await Future.delayed(const Duration(seconds: 2));
 }
-
-// setLocationLatLong(LatLng latLng, {bool? selectedLocation = false}) async {
-//   await appData.write(kKeySelectedLat, latLng.latitude);
-//   await appData.write(kKeySelectedLng, latLng.longitude);
-//   await appData.write(kKeySelectedLocation, selectedLocation);
-// }
-
-// Future<void> getCartDataApiCall() async {
-//   getCartRestaurantRXObj.fetchCartRestaurantData().then(
-//     (restaurant) {
-//       if (restaurant.isNotEmpty) {
-//         getDistanceRXObj.fetchDistanceData(restaurant["latitude"], restaurant["longitude"]);
-//       }
-//     },
-//   );
-// }
 
 Future<void> initiInternetChecker() async {
   InternetConnectionChecker.createInstance(

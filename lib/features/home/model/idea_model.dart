@@ -67,10 +67,10 @@ class Business {
   int? lastPage;
   String? lastPageUrl;
   List<Link>? links;
-  dynamic? nextPageUrl;
+  dynamic nextPageUrl;
   String? path;
   int? perPage;
-  dynamic? prevPageUrl;
+  dynamic prevPageUrl;
   int? to;
   int? total;
 

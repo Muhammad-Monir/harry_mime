@@ -48,6 +48,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/health.png
   AssetGenImage get health => const AssetGenImage('assets/icons/health.png');
 
+  /// File path: assets/icons/idea.png
+  AssetGenImage get idea => const AssetGenImage('assets/icons/idea.png');
+
   /// File path: assets/icons/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
@@ -91,6 +94,7 @@ class $AssetsIconsGen {
         finance,
         forward,
         health,
+        idea,
         logo,
         people,
         random,

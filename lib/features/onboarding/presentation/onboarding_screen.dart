@@ -13,6 +13,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: AppColors.allPrimaryColor,
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
@@ -20,53 +21,53 @@ class OnboardingScreen extends StatelessWidget {
                 fit: BoxFit.cover)),
         child: Center(
           child: Padding(
-            padding:
-                EdgeInsets.all( UIHelper.kDefaulutPadding()),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Spacer(),
-                Image.asset(
-                  Assets.images.splashVector.path,
-                  height: 286.h,
-                  width: 318.w,
-                ),
-                UIHelper.verticalSpaceLarge,
-                Text(
-                  "Business Ideas Generator",
-                  textAlign: TextAlign.center,
-                  style: TextFontStyle.headline32FFFFFFRoboto500,
-                ),
-                UIHelper.verticalSpaceMedium,
-                Text(
-                  "Discover innovative concepts, explore new industries, and embark on your journey to success.",
-                  textAlign: TextAlign.center,
-                  style: TextFontStyle.headline16cDFE1E6Poppins300,
-                ),
-                UIHelper.verticalSpaceLarge,
-                AuthCustomeButton(
-                  name: "GET STARTED",
-                  onCallBack: () {
-                    NavigationService.navigateToReplacement(Routes.home);
-                  },
-                  height: 56.h,
-                  minWidth: 343.w,
-                  borderRadius: 50.r,
-                  color: Colors.transparent,
-                  textStyle: TextFontStyle.button16primaryPoppins600,
-                  context: context,
-                  gradient: const LinearGradient(
-                    colors: [
-                     Color(0xFFB7CEEE),
-                     Color(0xFF4C6794),
-                     
-                    ],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+            padding: EdgeInsets.all(UIHelper.kDefaulutPadding()),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  UIHelper.verticalSpace(30.h),
+                  Image.asset(
+                    Assets.images.splashVector.path,
+                    height: 286.h,
+                    width: 318.w,
                   ),
-                ),
-                UIHelper.verticalSpaceMedium
-              ],
+                  UIHelper.verticalSpaceLarge,
+                  Text(
+                    "Business Ideas Generator",
+                    textAlign: TextAlign.center,
+                    style: TextFontStyle.headline32FFFFFFRoboto500,
+                  ),
+                  UIHelper.verticalSpaceMedium,
+                  Text(
+                    "Discover innovative concepts, explore new industries, and embark on your journey to success.",
+                    textAlign: TextAlign.center,
+                    style: TextFontStyle.headline16cDFE1E6Poppins300,
+                  ),
+                  UIHelper.verticalSpaceLarge,
+                  AuthCustomeButton(
+                    name: "GET STARTED",
+                    onCallBack: () {
+                      NavigationService.navigateToReplacement(Routes.home);
+                    },
+                    height: 56.h,
+                    minWidth: 343.w,
+                    borderRadius: 50.r,
+                    color: Colors.transparent,
+                    textStyle: TextFontStyle.button16primaryPoppins600,
+                    context: context,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color(0xFFB7CEEE),
+                        Color(0xFF4C6794),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                  UIHelper.verticalSpaceMedium
+                ],
+              ),
             ),
           ),
         ),
