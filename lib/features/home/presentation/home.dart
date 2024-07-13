@@ -220,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             BusinessIdeaDeatilsWidget(
                                                 name: businessModel.name,
                                                 imagePath:
-                                                    Assets.icons.user.path,
+                                                    Assets.icons.idea.path,
                                                 custColor: AppColors.cFFFFFF),
                                             UIHelper.verticalSpace(8.h),
                                             BusinessIdeaDeatilsWidget(
