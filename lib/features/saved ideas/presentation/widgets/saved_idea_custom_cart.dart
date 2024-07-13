@@ -32,7 +32,7 @@ class SavedIdeaCustomCart extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 112.h,
+            height: 122.h,
             margin: EdgeInsets.only(bottom: 12.h),
             decoration: BoxDecoration(
                 color: AppColors.secoundaryColor,
