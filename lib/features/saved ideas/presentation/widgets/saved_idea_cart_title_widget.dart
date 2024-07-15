@@ -19,7 +19,7 @@ class SavedIdeaCartTitleWidget extends StatelessWidget {
               flex: 2,
               child: Text(
                 "$title:",
-                style: TextFontStyle.title14cFFFFFFPoppins400,
+                style: TextFontStyle.title14whitePoppins400,
                 overflow: TextOverflow.ellipsis,
               )),
           UIHelper.horizontalSpace(5.w),

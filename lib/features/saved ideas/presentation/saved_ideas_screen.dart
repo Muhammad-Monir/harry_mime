@@ -42,7 +42,7 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
           Padding(
             padding: EdgeInsets.only(right: UIHelper.kDefaulutPadding()),
             child: Image.asset(
-              Assets.icons.saveFill.path,
+              Assets.icons.saveFillSmall.path,
               height: 24.h,
               width: 24.w,
             ),
@@ -62,7 +62,7 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
                 return Center(
                   child: Text(
                     "No Saved Business Found!",
-                    style: TextFontStyle.title14cFFFFFFPoppins400,
+                    style: TextFontStyle.title14whitePoppins400,
                   ),
                 );
               } else {

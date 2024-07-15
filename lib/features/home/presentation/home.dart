@@ -221,24 +221,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 name: businessModel.name,
                                                 imagePath:
                                                     Assets.icons.idea.path,
-                                                custColor: AppColors.cFFFFFF),
+                                                custColor: AppColors.white),
                                             UIHelper.verticalSpace(8.h),
                                             BusinessIdeaDeatilsWidget(
                                                 name: businessModel.capital,
                                                 imagePath:
                                                     Assets.icons.capital.path,
-                                                custColor: AppColors.cFFFFFF),
+                                                custColor: AppColors.white),
                                             UIHelper.verticalSpace(8.h),
                                             BusinessIdeaDeatilsWidget(
                                                 name: businessModel.skills,
                                                 imagePath:
                                                     Assets.icons.skills.path,
-                                                custColor: AppColors.cFFFFFF),
+                                                custColor: AppColors.white),
                                             UIHelper.verticalSpace(8.h),
                                             BusinessIdeaDeatilsWidget(
                                               name:
                                                   businessModel.necessaryPeople,
-                                              custColor: AppColors.cFFFFFF,
+                                              custColor: AppColors.white,
                                               imagePath:
                                                   Assets.icons.people.path,
                                             ),
@@ -281,9 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       },
                                                       child: Image(
                                                         image: AssetImage(
-                                                          Assets
-                                                              .icons
-                                                              .savedFillBig
+                                                          Assets.icons.fillSave
                                                               .path,
                                                         ),
                                                         height: 44.h,
@@ -353,8 +351,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     }
                                                   },
                                                   child: Image(
-                                                    image: AssetImage(Assets
-                                                        .icons.forward.path),
+                                                    image: AssetImage(
+                                                        Assets.icons.next.path),
                                                     height: 44.h,
                                                     width: 44.w,
                                                   ),
@@ -377,9 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       },
                                                       child: Image(
                                                         image: AssetImage(Assets
-                                                            .icons
-                                                            .forward
-                                                            .path),
+                                                            .icons.next.path),
                                                         height: 44.h,
                                                         width: 44.w,
                                                       ),

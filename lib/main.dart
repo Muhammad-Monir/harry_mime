@@ -21,9 +21,6 @@ void main() async {
   diSetup();
   initiInternetChecker();
   DioSingleton.instance.create();
-  //await Firebase.initializeApp();
-  //FirebaseMessaging.onBackgroundMessage(backgroundHandler);
-  //LocalNotificationService.initialize();
   runApp(const MyApp());
 }
 

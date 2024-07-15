@@ -5,17 +5,21 @@
   <color name="secoundaryColor">#FF121B31</color>
   <color name="containerColor">#FF1B294B</color>
   <color name="cFEFFFE">#FFFEFFFE</color>
- <color name="cA5ADBA">#FFA5ADBA</color>
- <color name="cDFE1E6">#FFDFE1E6</color>
- <color name="cF404754">#FF404754</color>
- <color name="cFFFFFF">#FFFFFFFF</color>
+  <color name="cA5ADBA">#FFA5ADBA</color>
+  <color name="cDFE1E6">#FFDFE1E6</color>
+  <color name="cF404754">#FF404754</color>
+  <color name="c6D60BD">#FF6D60BD</color>
+  <color name="c790CAD">#FF790CAD</color>
+  <color name="cFFFFFF">#FFFFFFFF</color>
+
+
   //old
   <color name="cDFDFDF">#FFDFDFDF</color>
   <color name="c47B54C">#FF47B54C</color>
   <color name="c0A0909">#FF0A0909</color>
   <color name="c000000">#FF000000</color>
   <color name="cF4F4F4">#FFF4F4F4</color>
-    <color name="scaffoldColor">#FFFBFBFB</color>
+  <color name="scaffoldColor">#FFFBFBFB</color>
   <color name="primaryColor">#FF4D3E39</color>
   <color name="activeColor">#FF326144</color>
   <color name="debitHigheColor">#FFB7242A</color>

@@ -46,7 +46,7 @@ deleteButtonDialouge(BuildContext context, String text, VoidCallback callback) {
                       height: 30.h,
                       minWidth: .25.sw,
                       borderRadius: 8.r,
-                      color: AppColors.cFFFFFF,
+                      color: AppColors.white,
                       textStyle:
                           TextFontStyle.headline16cDFE1E6Poppins300.copyWith(
                         color: AppColors.c000000,

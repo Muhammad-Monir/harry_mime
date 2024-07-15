@@ -30,9 +30,7 @@ class BusinessCategoryWidget extends StatelessWidget {
             color: AppColors.secoundaryColor,
             borderRadius: BorderRadius.circular(10.r),
             border: Border.all(
-                color: isSelected
-                    ? AppColors.cFFFFFF
-                    : AppColors.secoundaryColor)),
+                color: isSelected ? Colors.white : AppColors.secoundaryColor)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [

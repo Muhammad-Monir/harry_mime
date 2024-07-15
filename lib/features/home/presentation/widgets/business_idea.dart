@@ -32,12 +32,15 @@ class BusinessIdeaDeatilsWidget extends StatelessWidget {
               ),
               UIHelper.horizontalSpace(14.w),
               Flexible(
-                child: Text(
-                  name,
-                  style: TextFontStyle.headline16cDFE1E6Poppins300
-                      .copyWith(fontSize: 14.sp, color: custColor),
-                  softWrap: true,
-                  overflow: TextOverflow.visible,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Text(
+                    name,
+                    style: TextFontStyle.headline16cDFE1E6Poppins300
+                        .copyWith(fontSize: 14.sp, color: custColor),
+                    softWrap: true,
+                    overflow: TextOverflow.visible,
+                  ),
                 ),
               )
             ],

@@ -9,7 +9,7 @@ class TextFontStyle {
   //new
   static final headline32FFFFFFRoboto500 = TextStyle(
       fontFamily: FontFamily.roboto,
-      color: AppColors.cFFFFFF,
+      color: AppColors.white,
       fontSize: 32.sp,
       fontWeight: FontWeight.w500);
   static final headline20cDFE1E6Poppins500 = TextStyle(
@@ -27,9 +27,9 @@ class TextFontStyle {
       color: AppColors.allPrimaryColor,
       fontSize: 16.sp,
       fontWeight: FontWeight.w600);
-  static final title14cFFFFFFPoppins400 = TextStyle(
+  static final title14whitePoppins400 = TextStyle(
       fontFamily: FontFamily.poppins,
-      color: AppColors.cFFFFFF,
+      color: AppColors.white,
       fontSize: 14.sp,
       fontWeight: FontWeight.w400);
   static final title14cA5ADBAPoppins400 = TextStyle(

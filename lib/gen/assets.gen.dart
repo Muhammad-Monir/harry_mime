@@ -39,6 +39,10 @@ class $AssetsIconsGen {
   AssetGenImage get deteleIcon =>
       const AssetGenImage('assets/icons/detele_icon.png');
 
+  /// File path: assets/icons/fill_save.png
+  AssetGenImage get fillSave =>
+      const AssetGenImage('assets/icons/fill_save.png');
+
   /// File path: assets/icons/finance.png
   AssetGenImage get finance => const AssetGenImage('assets/icons/finance.png');
 
@@ -54,6 +58,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/icons/logo.png');
 
+  /// File path: assets/icons/next.png
+  AssetGenImage get next => const AssetGenImage('assets/icons/next.png');
+
   /// File path: assets/icons/people.png
   AssetGenImage get people => const AssetGenImage('assets/icons/people.png');
 
@@ -66,6 +73,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/save_fill.png
   AssetGenImage get saveFill =>
       const AssetGenImage('assets/icons/save_fill.png');
+
+  /// File path: assets/icons/save_fill_small.png
+  AssetGenImage get saveFillSmall =>
+      const AssetGenImage('assets/icons/save_fill_small.png');
 
   /// File path: assets/icons/saved_fill_big.png
   AssetGenImage get savedFillBig =>
@@ -91,15 +102,18 @@ class $AssetsIconsGen {
         arrowLeft,
         capital,
         deteleIcon,
+        fillSave,
         finance,
         forward,
         health,
         idea,
         logo,
+        next,
         people,
         random,
         save,
         saveFill,
+        saveFillSmall,
         savedFillBig,
         services,
         skills,

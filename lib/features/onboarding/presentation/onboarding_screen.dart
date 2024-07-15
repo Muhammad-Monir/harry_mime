@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:harry_mine/common_widgets/auth_button.dart';
 import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/gen/assets.gen.dart';
+import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/all_routes.dart';
+import 'package:harry_mine/helpers/di.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
@@ -12,6 +14,7 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    appData.write('isFirstTime', false);
     return Scaffold(
       //backgroundColor: AppColors.allPrimaryColor,
       body: Container(
@@ -36,17 +39,19 @@ class OnboardingScreen extends StatelessWidget {
                   Text(
                     "Business Ideas Generator",
                     textAlign: TextAlign.center,
-                    style: TextFontStyle.headline32FFFFFFRoboto500,
+                    style: TextFontStyle.headline32FFFFFFRoboto500
+                        .copyWith(fontFamily: 'Merriweather'),
                   ),
                   UIHelper.verticalSpaceMedium,
                   Text(
                     "Discover innovative concepts, explore new industries, and embark on your journey to success.",
                     textAlign: TextAlign.center,
-                    style: TextFontStyle.headline16cDFE1E6Poppins300,
+                    style: TextFontStyle.headline16cDFE1E6Poppins300
+                        .copyWith(fontFamily: 'Raleway'),
                   ),
                   UIHelper.verticalSpaceLarge,
                   AuthCustomeButton(
-                    name: "GET STARTED",
+                    name: "Let's Go!",
                     onCallBack: () {
                       NavigationService.navigateToReplacement(Routes.home);
                     },
@@ -54,12 +59,13 @@ class OnboardingScreen extends StatelessWidget {
                     minWidth: 343.w,
                     borderRadius: 50.r,
                     color: Colors.transparent,
-                    textStyle: TextFontStyle.button16primaryPoppins600,
+                    textStyle: TextFontStyle.button16primaryPoppins600.copyWith(
+                        color: AppColors.cFFFFFF, fontFamily: 'Merriweather'),
                     context: context,
                     gradient: const LinearGradient(
                       colors: [
-                        Color(0xFFB7CEEE),
-                        Color(0xFF4C6794),
+                        Color(0xFF6D60BD),
+                        Color(0xFF790CAD),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
