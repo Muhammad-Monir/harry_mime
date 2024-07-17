@@ -12,6 +12,9 @@ import 'package:flutter/widgets.dart';
 class $AssetsFontsGen {
   const $AssetsFontsGen();
 
+  /// File path: assets/fonts/Lobster-Regular.ttf
+  String get lobsterRegular => 'assets/fonts/Lobster-Regular.ttf';
+
   /// File path: assets/fonts/Poppins-Regular.ttf
   String get poppinsRegular => 'assets/fonts/Poppins-Regular.ttf';
 
@@ -19,7 +22,7 @@ class $AssetsFontsGen {
   String get robotoRegular => 'assets/fonts/Roboto-Regular.ttf';
 
   /// List of all assets
-  List<String> get values => [poppinsRegular, robotoRegular];
+  List<String> get values => [lobsterRegular, poppinsRegular, robotoRegular];
 }
 
 class $AssetsIconsGen {

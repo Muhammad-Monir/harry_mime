@@ -49,50 +49,52 @@ class _SavedIdeasScreenState extends State<SavedIdeasScreen> {
           )
         ],
       ),
-      body: StreamBuilder(
-          stream: getBusinessRX.getBusinessData,
-          builder: (context, snapshot) {
-            if (snapshot.data == null) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else {
-              List<BusinessModel> dataList = snapshot.data["data"];
-              if (dataList.isEmpty) {
-                return Center(
-                  child: Text(
-                    "No Saved Business Found!",
-                    style: TextFontStyle.title14whitePoppins400,
-                  ),
+      body: SafeArea(
+        child: StreamBuilder(
+            stream: getBusinessRX.getBusinessData,
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return const Center(
+                  child: CircularProgressIndicator(),
                 );
               } else {
-                return ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount: dataList.length,
-                    itemBuilder: (context, index) {
-                      BusinessModel dataModel = dataList[index];
-                      return GestureDetector(
-                        onTap: () async {
-                          Map<String, dynamic> mapedData = {
-                            'hasNext': false,
-                            'data': dataModel
-                          };
-                          getIdeaRXObj.addOfflineData(mapedData);
-                          Navigator.pop(context);
-                        },
-                        child: SavedIdeaCustomCart(
-                          id: dataModel.uid,
-                          name: dataModel.name,
-                          capital: dataModel.capital,
-                          skills: dataModel.skills,
-                          employee: dataModel.necessaryPeople,
-                          imagePath: url + dataModel.imagePath,
-                        ),
-                      );
-                    });
+                List<BusinessModel> dataList = snapshot.data["data"];
+                if (dataList.isEmpty) {
+                  return Center(
+                    child: Text(
+                      "No Saved Business Found!",
+                      style: TextFontStyle.title14whitePoppins400,
+                    ),
+                  );
+                } else {
+                  return ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      itemCount: dataList.length,
+                      itemBuilder: (context, index) {
+                        BusinessModel dataModel = dataList[index];
+                        return GestureDetector(
+                          onTap: () async {
+                            Map<String, dynamic> mapedData = {
+                              'hasNext': false,
+                              'data': dataModel
+                            };
+                            getIdeaRXObj.addOfflineData(mapedData);
+                            Navigator.pop(context);
+                          },
+                          child: SavedIdeaCustomCart(
+                            id: dataModel.uid,
+                            name: dataModel.name,
+                            capital: dataModel.capital,
+                            skills: dataModel.skills,
+                            employee: dataModel.necessaryPeople,
+                            imagePath: url + dataModel.imagePath,
+                          ),
+                        );
+                      });
+                }
               }
-            }
-          }),
+            }),
+      ),
     );
   }
 }
