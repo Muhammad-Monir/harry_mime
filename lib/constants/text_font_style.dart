@@ -37,6 +37,11 @@ class TextFontStyle {
       color: AppColors.cA5ADBA,
       fontSize: 14.sp,
       fontWeight: FontWeight.w400);
+  static final title28cA5ADBALobster700 = TextStyle(
+      fontFamily: FontFamily.lobster,
+      color: AppColors.cFFFFFF,
+      fontSize: 28.sp,
+      fontWeight: FontWeight.w700);
 
   //old
 }

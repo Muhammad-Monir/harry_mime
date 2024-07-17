@@ -8,6 +8,7 @@ import 'package:harry_mine/helpers/all_routes.dart';
 import 'package:harry_mine/helpers/di.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -36,19 +37,50 @@ class OnboardingScreen extends StatelessWidget {
                     width: 318.w,
                   ),
                   UIHelper.verticalSpaceLarge,
+                  // Text(
+                  //   "Business Ideas Generator",
+                  //   textAlign: TextAlign.center,
+                  //   style: TextFontStyle.headline32FFFFFFRoboto500
+                  //       .copyWith(fontFamily: 'Merriweather'),
+                  // ),
+                  // UIHelper.verticalSpaceMedium,
                   Text(
-                    "Business Ideas Generator",
+                    "Never run out of ideas again!",
                     textAlign: TextAlign.center,
-                    style: TextFontStyle.headline32FFFFFFRoboto500
-                        .copyWith(fontFamily: 'Merriweather'),
+                    style: TextFontStyle.title28cA5ADBALobster700,
                   ),
-                  UIHelper.verticalSpaceMedium,
-                  Text(
-                    "Discover innovative concepts, explore new industries, and embark on your journey to success.",
-                    textAlign: TextAlign.center,
-                    style: TextFontStyle.headline16cDFE1E6Poppins300
-                        .copyWith(fontFamily: 'Raleway'),
-                  ),
+                  // Text(
+                  //   "2.Never run out of ideas again!",
+                  //   textAlign: TextAlign.center,
+                  //   style: GoogleFonts.kaushanScript(
+                  //       color: AppColors.cFFFFFF,
+                  //       fontSize: 28.sp,
+                  //       fontWeight: FontWeight.w700),
+                  // ),
+                  // Text(
+                  //   "3.Never run out of ideas again!",
+                  //   textAlign: TextAlign.center,
+                  //   style: GoogleFonts.pacifico(
+                  //       color: AppColors.cFFFFFF,
+                  //       fontSize: 28.sp,
+                  //       fontWeight: FontWeight.w700),
+                  // ),
+                  // Text(
+                  //   "4.Never run out of ideas again!",
+                  //   textAlign: TextAlign.center,
+                  //   style: GoogleFonts.amaticSc(
+                  //       color: AppColors.cFFFFFF,
+                  //       fontSize: 28.sp,
+                  //       fontWeight: FontWeight.w700),
+                  // ),
+                  // Text(
+                  //   "5.Never run out of ideas again!",
+                  //   textAlign: TextAlign.center,
+                  //   style: GoogleFonts.comicNeue(
+                  //       color: AppColors.cFFFFFF,
+                  //       fontSize: 28.sp,
+                  //       fontWeight: FontWeight.w700),
+                  // ),
                   UIHelper.verticalSpaceLarge,
                   AuthCustomeButton(
                     name: "Let's Go!",

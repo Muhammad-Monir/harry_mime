@@ -10,6 +10,9 @@
 class FontFamily {
   FontFamily._();
 
+  /// Font family: Lobster
+  static const String lobster = 'Lobster';
+
   /// Font family: Poppins
   static const String poppins = 'Poppins';
 
