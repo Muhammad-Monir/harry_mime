@@ -4,6 +4,7 @@ import 'package:harry_mine/constants/text_font_style.dart';
 import 'package:harry_mine/gen/colors.gen.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
 
+// ignore: must_be_immutable
 class BusinessIdeaDeatilsWidget extends StatelessWidget {
   String imagePath;
   String name;

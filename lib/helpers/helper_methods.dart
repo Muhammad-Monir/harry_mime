@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, unused_local_variable, avoid_print
+// ignore_for_file: use_build_context_synchronously, unused_local_variable, avoid_print, depend_on_referenced_packages
 
 import 'dart:async';
 import 'dart:convert';

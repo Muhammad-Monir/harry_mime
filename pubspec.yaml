@@ -135,6 +135,9 @@ flutter:
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Regular.ttf
+    - family: Catalina
+      fonts:
+        - asset: assets/fonts/Catalina-Anacapa-Sans.ttf
     - family: Poppins
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
