@@ -8,7 +8,6 @@ import 'package:harry_mine/helpers/all_routes.dart';
 import 'package:harry_mine/helpers/di.dart';
 import 'package:harry_mine/helpers/navigation_service.dart';
 import 'package:harry_mine/helpers/ui_helpers.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -44,17 +43,18 @@ class OnboardingScreen extends StatelessWidget {
                   //       .copyWith(fontFamily: 'Merriweather'),
                   // ),
                   // UIHelper.verticalSpaceMedium,
-                  Text(
-                    "Never run out of ideas again!",
-                    textAlign: TextAlign.center,
-                    style: TextFontStyle.title28cA5ADBALobster700,
-                  ),
                   // Text(
-                  //   "2.Never run out of ideas again!",
+                  //   "Never run out of ideas again!",
+                  //   textAlign: TextAlign.center,
+                  //   style: TextFontStyle.title28cA5ADBALobster700
+                  //       .copyWith(fontSize: 36.sp),
+                  // ),
+                  // Text(
+                  //   "Never run out of ideas again!",
                   //   textAlign: TextAlign.center,
                   //   style: GoogleFonts.kaushanScript(
                   //       color: AppColors.cFFFFFF,
-                  //       fontSize: 28.sp,
+                  //       fontSize: 36.sp,
                   //       fontWeight: FontWeight.w700),
                   // ),
                   // Text(
@@ -66,13 +66,24 @@ class OnboardingScreen extends StatelessWidget {
                   //       fontWeight: FontWeight.w700),
                   // ),
                   // Text(
-                  //   "4.Never run out of ideas again!",
+                  //   "Never run out of ideas again!",
                   //   textAlign: TextAlign.center,
                   //   style: GoogleFonts.amaticSc(
                   //       color: AppColors.cFFFFFF,
-                  //       fontSize: 28.sp,
+                  //       fontSize: 40.sp,
                   //       fontWeight: FontWeight.w700),
                   // ),
+
+                  Text(
+                    "Never run out of ideas again!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: AppColors.cFFFFFF,
+                      fontSize: 42.sp,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Catalina',
+                    ),
+                  ),
                   // Text(
                   //   "5.Never run out of ideas again!",
                   //   textAlign: TextAlign.center,
